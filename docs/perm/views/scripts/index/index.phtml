@@ -1,0 +1,102 @@
+<div class="text">
+
+    <?php if ($this->authUserRole !== 'guest'): ?>
+
+    <div class="text_heading">
+        <span class="head"><?php echo $this->escape($this->contentPage->title); ?></span>
+    </div>
+
+    <?php if (isset($this->exception_msg)): ?>
+        <div>Ошибка: <?php echo $this->escape($this->exception_msg); ?></div>
+        <br/>
+        <?php endif; ?>
+
+    <form action="<?php echo $this->url(array('controller' => 'index', 'action' => 'index', 'title' => $this->contentPage->pageTitle)); ?>" method="post">
+
+        <div><?php echo $this->ckeditor; ?></div>
+
+        <input id="save" name="save" type="submit" value="Сохранить"/>
+    </form>
+    <br/>
+    <?php else: ?>
+
+    <?php echo $this->contentPage->content; ?>
+    <?php endif; ?>
+</div>
+
+<div class="clear"></div>
+<div class="stats">
+    <div class="text_heading">
+        <h2>Статистика</h2>
+    </div>
+    <div class="item">
+        <div class="sost"><a href="/saiika/sooyanie_i_dinamika/"></a></div>
+        <p><a href="/saiika/sooyanie_i_dinamika/">Состояние и динамика</a></p>
+
+    </div>
+    <div class="item">
+        <div class="budget"><a href="/saiika/bdjene_edva/"></a></div>
+        <p><a href="/saiika/bdjene_edva/">Бюджетные средства</a></p>
+
+    </div>
+    <div class="item">
+        <div class="lgoti"><a href="/saiika/lgo_pedpinimaelyam/"></a></div>
+        <p><a href="/saiika/lgo_pedpinimaelyam/">Льготы предпринимателям</a></p>
+
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<div class="zakon">
+    <div class="text_heading">
+        <span class="head">Законодательство</span>
+    </div>
+
+    <?php if ($this->documentList !== false): ?>
+        <?php foreach ($this->documentList as $item): ?>
+            <div class="item">
+                <div class="date"><p><?php echo $this->escape(date('d.m.Y', strtotime($item->dateCreate))); ?></p></div>
+                <div class="descript">
+                    <p class="title">Нормативно-правовые акты</p>
+
+                    <p class="description">
+                        <?php if (is_object($item->parent)): ?>
+                        <a href="<?php echo $this->url(array('controller' => 'document', 'action' => 'viewdoc', 'id' => $item->id, 'parent' => $item->parent->id), $item->link->group->getLink() . '-' . $item->link->link . '-viewdoc') ?>"><?php echo $this->escape($item->title); ?></a>
+                        <?php else: ?>
+                        <a href="<?php echo $this->url(array('controller' => 'document', 'action' => 'viewdoc', 'id' => $item->id, 'parent' => '0'), $item->link->group->getLink() . '-' . $item->link->link . '-viewdoc') ?>"><?php echo $this->escape($item->title); ?></a>
+                        <?php endif; ?>
+                    </p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+</div>
+<div class="pressa">
+    <div class="text_heading">
+        <span class="head">Пресс служба</span>
+    </div>
+
+    <?php if ($this->newsList !== false): ?>
+    <?php foreach ($this->newsList as $item): ?>
+        <div class="item">
+            <div class="img">
+                <?php if ($item->file->getName()): ?>
+                <img src="/files<?php echo $this->escape($item->file->getSubPath()); ?>/<?php echo $this->escape($item->file->getPreview()); ?>"/>
+                <?php endif; ?>
+            </div>
+
+            <div class="descript">
+                <p class="date"><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></p>
+
+                <p class="title"><a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $this->linkInfoNews->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a></p>
+
+            </div>
+        </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <div class="clear"></div>
+</div>

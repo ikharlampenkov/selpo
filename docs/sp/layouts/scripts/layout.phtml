@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>Официальный сайт администрации поселка Старопестерево</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
+
+    <script src="/js/scripts.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+
+    <!--[if lte IE 6]>
+    <script src="/js/png.js"></script>
+    <script>DD_belatedPNG.fix('div, a, img, span');</script>
+    <![endif]-->
+    <!--[if !IE 7]>
+    <style type="text/css">
+        #wrap {
+            display: table;
+            height: 100%
+        }
+    </style>
+    <![endif]-->
+
+</head>
+<body>
+<div id="header_top">
+    <div class="header_top_center">
+        <div class="posel">Сельские поселения Беловского района:</div>
+        <div class="menu_icons">
+            <ul class="icons">
+                <li class="item1"><a href="/"></a></li>
+                <li class="item2"><a href="/"></a></li>
+                <li class="item3"><a href="/"></a></li>
+                <li class="item4"><a href="/"></a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="center">
+    <div class="sidebar">
+        <div id="mainmenu">
+            <ul class="menu">
+                <?php foreach ($this->menuList as $group): ?>
+                <li>
+                    <?php if ($group->getHandler() !== null): ?>
+                    <a href="<?php echo $this->escape($group->getUrl($this->authUserRole)); ?>" <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                       class="selected"
+                        <?php endif; ?> ><?php echo $this->escape($group->title) ?></a>
+                    <?php else: ?>
+                    <a href="#"  <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                       class="selected"
+                        <?php endif; ?> ><?php echo $this->escape($group->title) ?></a>
+                    <?php endif; ?>
+                    <div class="round_bottom_left"></div>
+                    <div class="round_bottom_right"></div>
+                    <div class="round_top_left"></div>
+                    <div class="round_top_right"></div>
+
+                    </a>
+                    <?php $itemList = $group->getItemList();
+                    if ($itemList !== false): ?>
+                        <ul <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>style="display: block;"<?php endif; ?>>
+                            <?php foreach ($itemList as $item): ?>
+                            <?php if ($item->isVisible): ?>
+                                <li><a href="<?php echo $this->escape($item->getUrl($this->authUserRole)); ?>" class="selected"><?php echo $this->escape($item->title) ?></a></li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                        <?php endif; ?>
+
+                </li>
+                <?php endforeach; ?>
+
+                <?php if ($this->authUserRole !== 'guest'): ?>
+                <li>
+                    <a href="/menu/">Управление разделами</a>
+
+                    <div class="round_bottom_left"></div>
+                    <div class="round_bottom_right"></div>
+                    <div class="round_top_left"></div>
+                    <div class="round_top_right"></div>
+                </li>
+                <li>
+                    <a href="/banner/">Баннеры</a>
+
+                    <div class="round_bottom_left"></div>
+                    <div class="round_bottom_right"></div>
+                    <div class="round_top_left"></div>
+                    <div class="round_top_right"></div>
+                </li>
+                <li>
+                    <a href="/phone/">Телефоны</a>
+
+                    <div class="round_bottom_left"></div>
+                    <div class="round_bottom_right"></div>
+                    <div class="round_top_left"></div>
+                    <div class="round_top_right"></div>
+                </li>
+                <?php endif; ?>
+            </ul>
+
+            <?php if ($this->authUserRole !== 'guest'): ?>
+            <div>
+                <?php echo $this->authUser; ?> <a href="/login/logout/">(выход)</a>
+            </div>
+            <?php endif; ?>
+
+        </div>
+        <div class="flag"></div>
+    </div>
+    <div class="content">
+        <div class="content_header">
+            <div class="sitename">
+                <a href="/">
+                    <p class="big">Старопестерево</p>
+
+                    <p>Официальный сайт администрации</p>
+
+                    <p>Старопестеревского сельского поселения.</p>
+                </a>
+            </div>
+            <div class="logo"></div>
+            <div class="header_img">
+                <div class="search">
+                    <form action="/search/index/" method="post">
+                        <input type="text" name="query" class="search_field" value=""/>
+                        <input type="submit" name="submit_search" class="search_button" value="ПОИСК"/>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content_center">
+            <?php if ($this->pathway && $this->linkInfo->link != 'main_page'): ?>
+            <div class="pathway">
+                <a href="/" class="home"></a>
+                <?foreach ($this->pathway as $pathway): ?>
+                <?php echo $this->escape($pathway['title']); ?> <span class="separator">>></span>
+                <?php endforeach; ?>
+                <?php echo $this->escape($this->linkInfo->title); ?>
+            </div>
+            <?php endif; ?>
+
+            <?php echo $this->layout()->content; ?>
+
+
+        </div>
+        <div class="clear"></div>
+
+        <?php if (is_object($this->linkInfo) && $this->linkInfo->link == 'main_page'): ?>
+        <div class="zakon">
+            <div class="text_heading">
+                <h1>Законодательство</h1>
+            </div>
+
+            <?php if ($this->documentList !== false): ?>
+            <?php foreach ($this->documentList as $item): ?>
+                <div class="item">
+                    <p class="date"><?php echo $this->escape(date('d.m.Y', strtotime($item->dateCreate))); ?></p>
+
+                    <p class="description">
+                        <?php if (is_object($item->parent)): ?>
+                        <a href="<?php echo $this->url(array('controller' => 'document', 'action' => 'viewdoc', 'id' => $item->id, 'parent' => $item->parent->id), $item->link->group->getLink() . '-' . $item->link->link . '-viewdoc') ?>"><?php echo $this->escape($item->title); ?></a>
+                        <?php else: ?>
+                        <a href="<?php echo $this->url(array('controller' => 'document', 'action' => 'viewdoc', 'id' => $item->id, 'parent' => '0'), $item->link->group->getLink() . '-' . $item->link->link . '-viewdoc') ?>"><?php echo $this->escape($item->title); ?></a>
+                        <?php endif; ?>
+                    </p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <!--
+            <div class="pages">
+                <span>1</span> <a href="/">2</a> <a href="/">3</a> ...
+            </div>
+            -->
+
+            <div class="zakon_shadow"></div>
+        </div>
+        <?php endif; ?>
+
+
+    </div>
+
+
+</div>
+</div>
+
+
+<div class="pad"></div>
+<div id="footer">
+    <div class="footer_center">
+
+        <div class="contacts">
+            <p>+7 <?php echo $this->escape($this->mainPhone->phone); ?> <?php echo $this->escape($this->mainPhone->postIndex); ?>  <?php echo $this->escape($this->mainPhone->address); ?></p>
+        </div>
+        <div class="made"><a href="/"></a></div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

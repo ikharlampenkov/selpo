@@ -1,0 +1,42 @@
+<div class="content_center_left">
+    <div class="text_heading">
+        <h1>О нас</h1>
+    </div>
+    <div class="cont_text">
+        <?php if ($this->authUserRole !== 'guest'): ?>
+
+        <?php if (isset($this->exception_msg)): ?>
+            <div>Ошибка: <?php echo $this->escape($this->exception_msg); ?></div>
+            <br/>
+            <?php endif; ?>
+
+        <form action="<?php echo $this->url(array('controller' => 'index', 'action' => 'index', 'title' => $this->contentPage->pageTitle)); ?>" method="post">
+
+            <div><?php echo $this->ckeditor; ?></div>
+
+            <input id="save" name="save" type="submit" value="Сохранить"/>
+        </form>
+        <br/>
+        <?php else: ?>
+
+        <?php echo $this->contentPage->content; ?>
+        <?php endif; ?>
+    </div>
+</div>
+
+<div class="content_center_right">
+    <div class="news">
+        <h2>Новости</h2>
+
+        <?php if ($this->newsList !== false): ?>
+        <?php foreach ($this->newsList as $item): ?>
+            <div class="item">
+                <p class="date"><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></p>
+
+                <p><a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $this->linkInfoNews->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a></p>
+            </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+    </div>
+</div>

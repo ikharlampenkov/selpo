@@ -1,0 +1,28 @@
+<div class="text_heading">
+    <span class="head"><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Новости<?php endif; ?></span>
+</div>
+
+<div class="pressa-big">
+
+    <?php if ($this->newsList !== false): ?>
+    <?php foreach ($this->newsList as $item): ?>
+        <div class="item">
+            <div class="img">
+                <?php if ($item->file->getName()): ?>
+                <img src="/files<?php echo $this->escape($item->file->getSubPath()); ?>/<?php echo $this->escape($item->file->getPreview()); ?>"/>
+                <?php endif; ?>
+            </div>
+
+            <div class="descript">
+                <p class="date"><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></p>
+
+                <p class="title"><a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $this->linkInfo->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a></p>
+
+                <p class="text"><?php echo $this->escape($item->shortText); ?></p>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <div class="clear"></div>
+</div>

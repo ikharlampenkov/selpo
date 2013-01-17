@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>Официальный сайт администрации поселка Пермяки</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
+
+    <script src="/js/scripts.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+
+    <!--[if lte IE 6]>
+    <script src="/js/png.js"></script>
+    <script>DD_belatedPNG.fix('div, a, img, span');</script>
+    <![endif]-->
+    <!--[if !IE 7]>
+    <style type="text/css">
+        #wrap {
+            display: table;
+            height: 100%
+        }
+    </style>
+    <![endif]-->
+
+</head>
+<body>
+
+<div id="header">
+    <div class="logo"><a href="/"></a></div>
+    <div class="sitename">
+        <p class="big">Пермяки</p>
+
+        <p>Официальный сайт</p>
+
+        <p>администрации поселка</p>
+    </div>
+    <div class="posel">Сельские поселения Беловского района:</div>
+    <div class="map"></div>
+    <div class="menu_icons">
+        <ul class="icons">
+            <li class="item1"><a href="/"></a></li>
+            <li class="item2"><a href="/"></a></li>
+            <li class="item3"><a href="/"></a></li>
+            <li class="item4"><a href="/"></a></li>
+
+        </ul>
+    </div>
+    <div class="phone">(+7) <?php echo $this->escape($this->mainPhone->phone); ?></div>
+    <div class="ask"><a href="/obaeniya/inenepiemnaya/">Задать вопрос</a></div>
+    <div class="search">
+        <form action="/search/index/" method="post">
+            <input type="text" name="query" class="search_field" value="поиск" onClick="this.value=''" onFocusOut="if(this.value==''){this.value='поиск';}"/>
+            <input type="submit" name="submit_search" class="search_button" value=""/>
+        </form>
+    </div>
+
+    <div id="mainmenu">
+        <div class="menu">
+
+            <ul>
+                <?php foreach ($this->menuList as $group): ?>
+                <?php $itemList = $group->getItemList(); ?>
+                <li <?php if ($itemList !== false): ?>class="with_submenu"<?php endif; ?> >
+                    <img src="/images/menu_separator.png"/>
+                    <?php if ($group->getHandler() !== null): ?>
+                    <a href="<?php echo $this->escape($group->getUrl($this->authUserRole)); ?>"  <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                       class="selected"
+                        <?php endif; ?>><?php echo $this->escape($group->title) ?></a>
+                    <?php else: ?>
+                    <a href="/"  <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                       class="selected"
+                        <?php endif; ?>><?php echo $this->escape($group->title) ?></a>
+                    <?php endif; ?>
+                    <?php if ($itemList !== false): ?>
+                    <ul>
+                        <?php foreach ($itemList as $item): ?>
+                        <?php if ($item->isVisible): ?>
+                            <li><a href="<?php echo $this->escape($item->getUrl($this->authUserRole)); ?>"><?php echo $this->escape($item->title) ?></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php endif; ?>
+                </li>
+                <?php endforeach; ?>
+
+                <?php if ($this->authUserRole !== 'guest'): ?>
+                <li class="with_submenu"><img src="/images/menu_separator.png"/><a href="/menu/">Управление разделами</a>
+                   <ul>
+                       <li><a href="/banner/">Баннеры</a></li>
+                       <li><a href="/phone/">Телефоны</a></li>
+                       <li><?php echo $this->authUser; ?> <a href="/login/logout/">(выход)</a></li>
+                   </ul>
+                </li>
+
+                <?php endif; ?>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="slider">
+        <div class="arrl"></div>
+        <div class="arrr"></div>
+
+        <div id="cont">
+            <ul class="items">
+                <?php if ($this->bannerListMain !== false): ?>
+                <?php foreach ($this->bannerListMain as $banner): ?>
+                    <li>
+                        <div class="sliderim" style="background:url(/banners/<?php echo $banner->getBanner()->img->getName(); ?>)" title="<?php echo $this->escape($banner->getBanner()->title); ?>"></div>
+                    </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var speed = <?php echo $this->escape($this->mainPlace->changeTime) * 100; ?>;
+        </script>
+
+    </div>
+    <div class="slider_shadow"></div>
+
+</div>
+
+<div class="content">
+
+    <?php echo $this->layout()->content; ?>
+
+    <div class="clear"></div>
+
+</div>
+
+
+<div class="pad"></div>
+<div id="footer">
+    <div class="center">
+
+        <div class="phone"></div>
+        <div class="contacts">
+            <p>+7 <?php echo $this->escape($this->mainPhone->phone); ?></p>
+
+            <p><?php echo $this->escape($this->mainPhone->address); ?></p>
+
+            <p><?php echo $this->escape($this->mainPhone->postIndex); ?></p>
+
+        </div>
+        <div class="made"><a href="/"></a></div>
+    </div>
+</div>
+
+</body>
+</html>
