@@ -49,8 +49,12 @@ class IndexController extends Zend_Controller_Action
         $this->view->assign('contentPage', $oContentPage);
 
         $linkInfo = SM_Menu_Group::getInstanceById(7);
-        $this->view->assign('newsList', SM_Module_News::getTopNewsInstance($linkInfo));
-        $this->view->linkInfoNews = $linkInfo;
+        if ($linkInfo !== false) {
+            $this->view->assign('newsList', SM_Module_News::getTopNewsInstance($linkInfo));
+            $this->view->linkInfoNews = $linkInfo;
+        } else {
+            $this->view->assign('newsList', false);
+        }
 
         $documentList = SM_Module_Document::getTopDocument(SM_Menu_Item::getInstanceByLink('nomaivnopavove_ak'));
         $this->view->assign('documentList', $documentList);

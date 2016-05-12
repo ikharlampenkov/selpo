@@ -43,12 +43,13 @@
     <div class="clear"></div>
 </div>
 
+<?php if ($this->newsList !== false): ?>
 <div class="pressa">
     <div class="text_heading">
         <span class="head">Пресс служба</span>
     </div>
 
-    <?php if ($this->newsList !== false): ?>
+
     <?php foreach ($this->newsList as $item): ?>
         <div class="item">
             <div class="img">
@@ -66,10 +67,10 @@
             </div>
         </div>
         <?php endforeach; ?>
-    <?php endif; ?>
 
     <div class="clear"></div>
 </div>
+<?php endif; ?>
 
 <div class="zakon">
     <div class="text_heading">
