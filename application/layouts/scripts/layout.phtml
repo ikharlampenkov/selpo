@@ -119,6 +119,7 @@
                         <li><a href="/menu/">Управление разделами</a></li>
                         <li><a href="/banner/">Баннеры</a></li>
                         <li><a href="/phone/">Телефоны</a></li>
+                        <li><a href="/login/logout/"><?php echo $this->authUser; ?> (выход)</a></li>
                     <?php endif; ?>
 
                 </ul>
@@ -159,12 +160,6 @@
     </div>
 
 </div>
-
-<?php if ($this->authUserRole !== 'guest'): ?>
-    <div>
-        <?php echo $this->authUser; ?> <a href="/login/logout/">(выход)</a>
-    </div>
-<?php endif; ?>
 
 </body>
 </html>
