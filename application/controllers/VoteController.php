@@ -32,7 +32,7 @@ class VoteController extends Zend_Controller_Action
 
             try {
                 SM_Module_Vote::saveVoteEmail($this->_link, $data['email']);
-                $this->_redirect('/vote/index/link/' . $this->_link->getLink());
+                $this->redirect('/vote/index/link/' . $this->_link->getLink());
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -56,7 +56,7 @@ class VoteController extends Zend_Controller_Action
             try {
                 SM_Module_Vote::sendVote($this->_link, $data);
                 $mainSession->isComplite = true;
-                $this->_redirect('/' . $this->_link->getGroup()->getLink() . '/' . $this->_link->getLink());
+                $this->redirect('/' . $this->_link->getGroup()->getLink() . '/' . $this->_link->getLink());
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
