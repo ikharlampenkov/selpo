@@ -18,6 +18,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         //  Устанавливаем кодировку вывода.
         $view->setEncoding('UTF-8');
 
+        $mainSession = new Zend_Session_Namespace('siteMode');
+        if (!isset($mainSession->mode)) {
+            $mainSession->mode = 'normal';
+        }
+
+        if ($mainSession->mode == 'normal') {
+            $layout->setLayout('layout');
+        } else {
+            $layout->setLayout('layout-special');
+        }
 
         //  Возвращаем бутстраперу Вид
         return $view;
@@ -95,6 +105,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         Zend_Loader::loadClass('ShowPhone');
         Zend_Controller_Front::getInstance()->registerPlugin(new ShowPhone());
+
+        Zend_Loader::loadClass('ShowSiteMode');
+        Zend_Controller_Front::getInstance()->registerPlugin(new ShowSiteMode());
     }
 
     protected function _initRoute()

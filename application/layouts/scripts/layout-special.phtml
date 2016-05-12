@@ -5,7 +5,7 @@
     <title>Официальный сайт администрации поселка Мохово</title>
 
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/styles-special.css"/>
 
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
@@ -56,30 +56,10 @@
         </div>
 
         <div class="posel">Сельские поселения Беловского района</div>
-        <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal'?'special':'normal'; ?>"><?= $this->currentSiteMode == 'normal'?'Версия для слабовидящих':'Обычная версия'; ?></a></div>
+        <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a></div>
         <div class="map"></div>
         <div class="phone">(+7) <?php echo $this->escape($this->mainPhone->phone); ?></div>
         <div class="ask"><a href="/obaeniya/inenepiemnaya/">Задать вопрос</a></div>
-        <div class="slider">
-            <div class="arrl"></div>
-            <div class="arrr"></div>
-            <div id="cont">
-                <ul class="items">
-                    <?php if ($this->bannerListMain !== false): ?>
-                        <?php foreach ($this->bannerListMain as $banner): ?>
-                            <li>
-                                <div class="sliderim" style="background:url(/banners/<?php echo $banner->getBanner()->img->getName(); ?>)" title="<?php echo $this->escape($banner->getBanner()->title); ?>"></div>
-                            </li>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </ul>
-            </div>
-            <script type="text/javascript">
-                var speed = <?php echo $this->escape($this->mainPlace->changeTime) * 100; ?>;
-            </script>
-
-        </div>
-        <div class="slider_shadow"></div>
 
     </div>
 

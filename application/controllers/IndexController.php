@@ -37,8 +37,8 @@ class IndexController extends Zend_Controller_Action
             $oContentPage->setContent($data['content']);
 
             try {
-                $oContentPage->updateToDb();
-                $this->_redirect('/');
+                $oContentPage->updateToDB();
+                $this->redirect('/');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -58,6 +58,21 @@ class IndexController extends Zend_Controller_Action
 
         $documentList = SM_Module_Document::getTopDocument(SM_Menu_Item::getInstanceByLink('nomaivnopavove_ak'));
         $this->view->assign('documentList', $documentList);
+    }
+
+    public function changeModeAction()
+    {
+        $rawMode = $this->getRequest()->getParam('mode', 'normal');
+        if (in_array($rawMode, array('normal', 'special'))) {
+            $mode = $rawMode;
+        } else {
+            $mode = 'normal';
+        }
+
+        $mainSession = new Zend_Session_Namespace('siteMode');
+        $mainSession->mode = $mode;
+
+        $this->redirect('/');
     }
 
 
