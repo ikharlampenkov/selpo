@@ -1,0 +1,640 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Minion Pro, sans-serif;
+}
+
+.small {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Minion Pro, sans-serif;
+}
+
+.medium {
+    font-size: 16px;
+    line-height: 22px;
+    font-family: Minion Pro, sans-serif;
+}
+
+.large {
+    font-size: 20px;
+    line-height: 22px;
+    font-family: Minion Pro, sans-serif;
+}
+
+#wrap {
+    position: relative;
+    margin: 0 auto;
+    width: 990px;
+    min-height: 100%;
+    height: auto !important;
+}
+
+#header {
+    position: relative;
+    width: 990px;
+    height: 163px;
+}
+
+.header_top {
+    position: relative;
+    width: 990px;
+    height: 40px;
+    background: #0178bf;
+}
+
+.font-resize {
+    margin-left: 10px;
+    color: #ffffff;
+    vertical-align: middle;
+}
+
+.font-resize a {
+    display: inline-block;
+    margin: 2px 2px;
+    padding: 3px;
+    border: #ffffff 1px solid;
+    color: #ffffff;
+    width: 25px;
+    height: 25px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#header .phone {
+    position: absolute;
+    top: 73px;
+    right: 15px;
+
+    color: #0178bf;
+    font-family: Minion Pro, serif;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+    z-index: 3;
+}
+
+#header .ask {
+    position: absolute;
+
+    top: 105px;
+    right: 15px;
+
+    z-index: 3;
+}
+
+#header .ask a {
+    color: #0178bf;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#header .ask a:hover {
+    text-decoration: none;
+
+}
+
+#header .site-name {
+    width: 184px;
+    z-index: 3;
+    margin: 15px 15px;
+}
+
+#header .site-name .big {
+    font-size: 42px;
+    font-weight: normal;
+    line-height: 38px;
+    color: #0178bf;
+    text-decoration: none;
+}
+
+#header .site-name p {
+    color: #0178bf;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+#header .posel {
+    position: absolute;
+    top: 66px;
+    left: 360px;
+    color: #0178bf;
+    text-align: center;
+    z-index: 3;
+}
+
+#header .site-mode {
+    position: absolute;
+    top: 84px;
+    left: 360px;
+    color: #0178bf;
+    font-family: Minion Pro, serif;
+    font-size: 18px;
+    text-align: center;
+
+    z-index: 3;
+    line-height: 19px;
+}
+
+#header .site-mode a {
+    color: #0178bf;
+    font-family: Minion Pro, serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+/******************************** поиск ********************/
+.search {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    line-height: 19px;
+}
+
+.search .search_field {
+    border: #000000 solid 1px;
+    width: 152px;
+    height: 15px;
+    color: #000000;
+    font-family: Arial, serif;
+    padding-left: 5px;
+    float: left;
+}
+
+.search .search_button {
+    width: 18px;
+    height: 18px;
+    background: url(/images/search_button.gif) no-repeat left top;
+    margin: 1px 0 0 4px;
+    border: #c7c6c6 solid 1px;
+    cursor: pointer;
+}
+
+/******************************** маленькие иконки в шапке ********************/
+.header_top .menu_icons {
+    height: 18px;
+    position: absolute;
+    top: 13px;
+    right: 18px;
+
+}
+
+.header_top .menu_icons .icons {
+    height: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.header_top .menu_icons .icons li {
+    list-style: none;
+    margin: 0 0 0 28px;
+    padding: 0;
+    width: 13px;
+    height: 13px;
+    float: left;
+
+}
+
+#center {
+    position: relative;
+    width: 990px;
+    min-height: 700px;
+    height: 100%;
+    background: #fff;
+    padding: 20px 0 0 0;
+    border-bottom: 3px solid #0467a2;
+}
+
+#center .sidebar {
+    position: relative;
+    width: 220px;
+    float: left;
+
+}
+
+#center .content {
+    float: right;
+    width: 730px;
+    margin: 0 18px 0 0;
+    overflow: hidden;
+    padding: 0 0 100px 0;
+}
+
+/************* mainmenu *************************/
+#mainmenu-static {
+    position: relative;
+}
+
+#mainmenu-static .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 220px;
+}
+
+#mainmenu-static .menu li {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0 10px 0 0;
+    text-align: right;
+}
+
+#mainmenu-static .menu li a {
+    padding: 0;
+    color: #000000;
+}
+
+#mainmenu-static .menu li a:hover {
+    color: #0178bf;
+}
+
+#mainmenu-static .menu li .selected {
+    color: #0178bf;
+}
+
+#mainmenu-static ul li ul {
+    min-height: 100px;
+    color: white;
+    padding: 7px 10px 0 10px;
+}
+
+#mainmenu-static ul li ul li {
+    border: #fff solid;
+    border-width: 0 0 1px 0;
+}
+
+#mainmenu-static .menu li ul li a {
+    text-decoration: none;
+    color: #f7f7f7;
+}
+
+#mainmenu-static .menu li ul li a.hover {
+    color: black;
+    text-decoration: underline;
+}
+
+#mainmenu-static .menu li ul li .selected {
+    color: black;
+    text-decoration: underline;
+}
+
+#mainmenu-static .menu li a.hover {
+    color: #0178bf;
+}
+
+/********** pathway *********************/
+
+.pathway {
+    color: #000;
+    margin-left: 10px;
+}
+
+.pathway .home {
+    display: block;
+    width: 19px;
+    height: 19px;
+    float: left;
+    margin: 0 17px 0 0;
+    background: url(/images/path_home.gif) no-repeat left center;
+
+}
+
+.pathway .separator {
+    color: #bbbbbb;
+}
+
+.pathway a {
+    color: #000;
+}
+
+.pathway a:hover {
+    text-decoration: none;
+}
+
+/******************* text ********************/
+.clear {
+    clear: both;
+}
+
+.text_heading {
+    margin: 20px 0;
+    background: url(/images/h1_bg.png) repeat-x left center;
+}
+
+.text_heading .head {
+    padding: 0 20px 0 0;
+
+    font-size: 30px;
+    line-height: 20px;
+    color: #0467a2;
+    background: #fff;
+    font-family: Minion Pro, serif;
+
+}
+
+.cont_text > p {
+    color: #323232;
+    font-size: 13px;
+    font-family: Arial, serif;
+    text-align: justify;
+}
+
+/********************** статистика ********************/
+.stats {
+    width: 690px;
+    height: 202px;
+    padding: 0 12px 0 22px;
+    border: 1px solid #d2d2d2;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.stats .item {
+    width: 228px;
+    float: left;
+    text-align: center;
+
+}
+
+.stats .item div {
+    margin-left: 50%;
+}
+
+.stats .item p {
+    padding: 0;
+    margin: 0;
+    color: #000;
+    font-family: Minion Pro, serif;
+    font-size: 18px;
+}
+
+.stats .item p a {
+    color: #000;
+    text-decoration: none;
+}
+
+.stats .item .sost a {
+    display: block;
+    width: 91px;
+    height: 91px;
+    margin-left: -45px;
+
+    background: url(/images/sost.png) no-repeat left top;
+}
+
+.stats .item .budget a {
+    display: block;
+    width: 91px;
+    height: 91px;
+    margin-left: -53px;
+
+    background: url(/images/budget.png) no-repeat left top;
+}
+
+.stats .item .lgoti a {
+    display: block;
+    width: 91px;
+    height: 91px;
+    margin-left: -53px;
+
+    background: url(/images/lgoti.png) no-repeat left top;
+}
+
+/******************* пресса *************************/
+.pressa {
+    margin: 40px 0 0 0;
+}
+
+.pressa .item {
+    width: 202px;
+    float: left;
+    text-align: left;
+    overflow: hidden;
+    margin: 0 60px 0 0;
+}
+
+#end_item_pressa {
+    margin: 0 0 0 0;
+}
+
+.pressa .item .img {
+    width: 39px;
+    height: 41px;
+    float: left;
+    overflow: hidden;
+    border: 1px solid #3faaec;
+    margin-top: 17px;
+}
+
+.pressa .item .descript {
+    padding-left: 50px;
+
+}
+
+.pressa .item p {
+    padding: 0;
+    margin: 0;
+    font-size: 11px;
+}
+
+.pressa .item .descript .date {
+    color: #1a74a9;
+    font-family: Minion Pro, serif;
+}
+
+.pressa .item .descript .title a {
+    color: #323232;
+    font-family: Arial, serif;
+
+}
+
+.pressa .item .descript .title a:hover {
+    text-decoration: none;
+}
+
+.pressa .item .descript .text {
+    font-size: 11px;
+}
+
+/******************** законодательство *******************/
+
+.zakon {
+    margin: 40px 0 0 0;
+}
+
+.zakon .item {
+    margin: 0 0 20px 0;
+}
+
+.zakon .item .date {
+    width: 100px;
+    float: left;
+    overflow: hidden;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.zakon .item .date p {
+    color: #000000;
+}
+
+.zakon .item .descript {
+    padding-left: 105px;
+}
+
+.zakon .item p {
+    padding: 0;
+    margin: 0;
+}
+
+.zakon .item .descript .title {
+    color: #0178bf;
+    margin-bottom: 5px;
+}
+
+.zakon .item .descript .description a {
+    color: #000;
+}
+
+.zakon .item .descript .description a:hover {
+    text-decoration: none;
+}
+
+/******************** footer ************************/
+.pad {
+    height: 105px;
+    clear: both;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 105px;
+    width: 990px;
+    background: #0178bf;
+    clear: both;
+    vertical-align: top;
+}
+
+#footer .contacts {
+    margin: 15px 15px;
+}
+
+#footer .contacts p {
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+#footer .made {
+    text-align: right;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+#footer .made a {
+    text-align: right;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/******* admin *********/
+
+table {
+    width: 100%;
+}
+
+input, select {
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    width: 14px;
+}
+
+textarea {
+    width: 100%;
+    height: 250px;
+}
+
+#save {
+    width: 100px;
+}
+
+.tedit {
+    background-color: #ebf4ff;
+    padding: 10px;
+    width: 120px;
+}
+
+.tdel {
+    background-color: #ebf4ff;
+    padding: 10px;
+    width: 50px;
+}
+
+a.tdel {
+    color: #830000;
+}
+
+a.tedit {
+    color: #1465c0;
+}
+
+.ttovar {
+    background-color: #f7f7f7;
+    color: #000000;
+    padding: 10px;
+}
+
+a.ttovar {
+    color: #000000;
+}
+
+.ttovar_title {
+    background-color: #f7f7f7;
+    padding: 10px;
+    width: 210px;
+}
+
+.sub-menu {
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 520px;
+    background: url(/images/submenu.png) top left no-repeat;
+    vertical-align: middle;
+}
+
+.document {
+    list-style: none;
+    padding: 0;
+}
+
+.document li {
+    padding: 5px 0;
+}
+
+.doc_text {
+    text-align: justify;
+}
+
+
+
+
+
+

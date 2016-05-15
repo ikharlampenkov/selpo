@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Официальный сайт администрации поселка Мохово</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/styles-special.css"/>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
+
+    <script type="text/javascript" src="/js/scripts.js"></script>
+
+    <!--[if lte IE 6]>
+    <script src="/js/png.js"></script>
+    <script>DD_belatedPNG.fix('div, a, img, span');</script>
+    <![endif]-->
+    <!--[if !IE 7]>
+    <style type="text/css">
+        #wrap {
+            display: table;
+            height: 100%
+        }
+    </style>
+    <![endif]-->
+
+</head>
+<body class="small">
+<div id="wrap">
+    <div id="header">
+        <div class="header_top">
+            <div class="font-resize">Размер шрифта:
+                <a href="#" class="small">A</a>
+                <a href="#" class="medium">A</a>
+                <a href="#" class="large">A</a>
+            </div>
+            <div class="search">
+                <form action="/search/index/" method="post">
+                    <input type="text" name="query" class="search_field" value="поиск" onClick="this.value=''" onFocusOut="if(this.value==''){this.value='поиск';}"/>
+                    <input type="submit" name="submit_search" class="search_button" value=""/>
+                </form>
+            </div>
+        </div>
+
+        <div class="site-name">
+            <a href="/" class="big">Мохово</a>
+            <p>Официальный сайт администрации поселка</p>
+        </div>
+
+        <div class="posel">Сельские поселения Беловского района</div>
+        <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a></div>
+        <div class="phone">+7 <?php echo $this->escape($this->mainPhone->phone); ?></div>
+        <div class="ask"><a href="/obaeniya/inenepiemnaya/">Задать вопрос</a></div>
+
+    </div>
+
+
+    <div id="center">
+        <div class="sidebar">
+            <div id="mainmenu-static">
+                <ul class="menu">
+                    <?php foreach ($this->menuList as $group): ?>
+                        <li>
+                            <?php if ($group->getHandler() !== null): ?>
+                                <a href="<?php echo $this->escape($group->getUrl($this->authUserRole)); ?>"
+                                    <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                                        class="selected hover"
+                                    <?php endif; ?> style="font-weight: bold;" title="<?= $this->escape($group->title) ?>"><?= $this->escape($group->title); ?></a>
+
+                            <?php else: ?>
+                                <a href="/" <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                                    class="selected hover"
+                                <?php endif; ?> style="font-weight: bold;"><?php echo $this->escape($group->title); ?></a>
+                            <?php endif; ?>
+                            <?php $itemList = $group->getItemList();
+                            if ($itemList !== false): ?>
+                                <ul>
+                                    <?php
+                                    foreach ($itemList as $item):
+                                        if ($item->isVisible): ?>
+                                            <li><a href="<?= $this->escape($item->getUrl($this->authUserRole)); ?>" class="selected" title="<?= $this->escape($item->title); ?>">
+                                                    <?= $this->escape($item->title); ?>
+                                                </a>
+                                            </li>
+                                        <?php endif;
+                                    endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach; ?>
+
+                    <?php if ($this->authUserRole !== 'guest'): ?>
+                        <li><a href="/menu/">Управление разделами</a></li>
+                        <li><a href="/banner/">Баннеры</a></li>
+                        <li><a href="/phone/">Телефоны</a></li>
+                        <li><a href="/login/logout/"><?php echo $this->authUser; ?> (выход)</a></li>
+                    <?php endif; ?>
+
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+
+
+            <?php if ($this->pathway && $this->linkInfo->link != 'main_page'): ?>
+                <div class="pathway">
+                    <a href="/" class="home"></a>
+                    <? foreach ($this->pathway as $pathway): ?>
+                        <?php echo $this->escape($pathway['title']); ?> <span class="separator">>></span>
+                    <?php endforeach; ?>
+                    <?php echo $this->escape($this->linkInfo->title); ?>
+                </div>
+                <div class="clear"></div>
+            <?php endif; ?>
+
+            <?php echo $this->layout()->content; ?>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="pad"></div>
+    <div id="footer">
+        <div class="contacts">
+            <p>+7 <?php echo $this->escape($this->mainPhone->phone); ?></p>
+
+            <p><?php echo $this->escape($this->mainPhone->address); ?></p>
+
+            <p><?php echo $this->escape($this->mainPhone->postIndex); ?></p>
+
+        </div>
+        <div class="made"><a href="/">inVoice Group</a></div>
+    </div>
+
+</div>
+
+</body>
+</html>
