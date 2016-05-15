@@ -10,6 +10,12 @@ $(document).ready(function () {
         }
     );
 
+    $('.font-resize').on('click', 'a', function () {
+        var currentClass = $(this).attr('class');
+        $('body').removeClass('small medium large').addClass(currentClass);
+        return false;
+    });
+
 
     // slider --
 
@@ -41,7 +47,7 @@ $(document).ready(function () {
             $("#cont ul li:first").clone().appendTo("#cont .items");
 
 
-            $("#cont ul").animate({ marginLeft:current_elem * -contw }, speed, function () {
+            $("#cont ul").animate({marginLeft: current_elem * -contw}, speed, function () {
 
                 $("#cont ul").css('width', cont_width + "px");
 
@@ -55,7 +61,7 @@ $(document).ready(function () {
 
         }
 
-        else $("#cont ul").animate({ marginLeft:current_elem * -contw }, { duration:speed });
+        else $("#cont ul").animate({marginLeft: current_elem * -contw}, {duration: speed});
 
     });
 
@@ -70,7 +76,7 @@ $(document).ready(function () {
 
             $("#cont ul").css("marginLeft", (contw * -1) + "px");
 
-            $("#cont ul").animate({ marginLeft:"0px" }, speed, function () {
+            $("#cont ul").animate({marginLeft: "0px"}, speed, function () {
 
                 $("#cont ul").css('marginLeft', (cont_width - contw) * -1);
 
@@ -82,7 +88,7 @@ $(document).ready(function () {
 
         }
 
-        else $("#cont ul").animate({ marginLeft:current_elem * -contw }, { duration:speed });
+        else $("#cont ul").animate({marginLeft: current_elem * -contw}, {duration: speed});
 
     });
 
