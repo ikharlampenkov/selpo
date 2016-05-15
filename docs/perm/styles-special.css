@@ -6,12 +6,34 @@ html, body {
 }
 
 body {
-    background: #fff url(/images/bg.png) repeat-x left top;
-
     height: 100%;
     min-height: 100%;
     height: auto !important;
     position: relative;
+}
+
+body {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Minion Pro, sans-serif;
+}
+
+.small {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Minion Pro, sans-serif;
+}
+
+.medium {
+    font-size: 16px;
+    line-height: 22px;
+    font-family: Minion Pro, sans-serif;
+}
+
+.large {
+    font-size: 20px;
+    line-height: 22px;
+    font-family: Minion Pro, sans-serif;
 }
 
 p {
@@ -21,8 +43,6 @@ p {
 
 h2 {
     font-size: 31px;
-
-    font-family: Minion Pro;
     padding: 0;
     margin: 0;
 }
@@ -34,53 +54,53 @@ h2 {
 #header {
     position: relative;
     width: 998px;
-    height: 575px;
+    height: 300px;
     margin: 0 auto;
 }
 
-.logo a {
-    position: absolute;
-    display: block;
-    width: 112px;
-    height: 105px;
-    top: 30px;
-    left: 0px;
-    background: url(/images/gerb.png) no-repeat left center;
-    z-index: 2;
+.font-resize {
+    margin-left: 10px;
+    color: #000000;
+    vertical-align: middle;
 }
 
-#header .sitename {
-    position: absolute;
-    top: 50px;
-    left: 138px;
+.font-resize a {
+    display: inline-block;
+    margin: 2px 2px;
+    padding: 3px;
+    border: #000000 1px solid;
+    color: #000000;
+    width: 25px;
+    height: 25px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#header .site-name {
+    margin: 15px 15px;
     z-index: 3;
-
 }
 
-#header .sitename p {
-    color: #e55c00;
-    font-family: Minion Pro;
-    font-size: 13px;
+#header .site-name .big {
+    color: #000000;
+    font-size: 42px;
+    font-weight: normal;
+    line-height: 38px;
+    text-decoration: none;
+}
+
+#header .site-name p {
+    color: #000000;
     text-align: left;
     padding: 0;
     margin: 0;
-    font-weight: bold;
-    line-height: 15px
-}
-
-#header .sitename .big {
-    font-size: 42px;
-    font-weight: 0;
-    line-height: 38px
 }
 
 #header .posel {
     position: absolute;
     top: 28px;
     left: 389px;
-    color: #e55c00;
-    font-family: Minion Pro;
-    font-size: 16px;
+    color: #000000;
     text-align: center;
 
     z-index: 3;
@@ -91,7 +111,7 @@ h2 {
     position: absolute;
     top: 46px;
     left: 389px;
-    color: #e55c00;
+    color: #000000;
     font-family: Minion Pro, serif;
     font-size: 18px;
     text-align: center;
@@ -101,47 +121,33 @@ h2 {
 }
 
 #header .site-mode a {
-    color: #e55c00;
+    color: #000000;
     font-family: Minion Pro, serif;
     font-size: 18px;
     text-align: center;
-}
-
-.map {
-    position: absolute;
-    width: 31px;
-    height: 47px;
-    top: 64px;
-    left: 515px;
-    background: url(/images/gerb2.png) no-repeat left center;
-    z-index: 1;
 }
 
 #header .phone {
     position: absolute;
 
     top: 62px;
-    right: 54px;
-    color: #e55c00;
-    font-family: Minion Pro;
-    font-size: 23px;
+    right: 15px;
+    color: #000000;
+    font-size: 24px;
+    line-height: 26px;
     text-align: center;
     z-index: 3;
 }
 
 #header .ask {
     position: absolute;
-
     top: 90px;
-    right: 54px;
-
+    right: 15px;
     z-index: 3;
 }
 
 #header .ask a {
-    color: #888888;
-    font-family: Arial;
-    font-size: 11px;
+    color: #000000;
     text-decoration: underline;
     font-weight: bold;
 }
@@ -151,70 +157,19 @@ h2 {
 
 }
 
-/******************************** маленькие иконки в шапке ********************/
-#header .menu_icons {
-    height: 18px;
-    position: absolute;
-    top: 28px;
-    right: 14px;
-
-}
-
-#header .menu_icons .icons {
-    height: 18px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-}
-
-#header .menu_icons .icons li {
-    list-style: none;
-    margin: 0 0 0 28px;
-    padding: 0;
-    width: 13px;
-    height: 13px;
-    float: left;
-
-}
-
-#header .menu_icons .icons a {
-    width: 13px;
-    height: 13px;
-    display: block;
-}
-
-#header .menu_icons .icons .item1 a {
-    background: url(/images/home_icon.gif) no-repeat left center;
-}
-
-#header .menu_icons .icons .item2 a {
-    background: url(/images/star_icon.gif) no-repeat left center;
-}
-
-#header .menu_icons .icons .item3 a {
-    background: url(/images/sitemap_icon.gif) no-repeat left center;
-}
-
-#header .menu_icons .icons .item4 a {
-    background: url(/images/mail_icon.gif) no-repeat left center;
-}
-
 /******************************** поиск ********************/
 .search {
     position: absolute;
     top: 115px;
-    right: 54px;
+    right: 15px;
     line-height: 19px;
 }
 
 .search .search_field {
-    border: #c7c6c6 solid 1px;
+    border: #000000 solid 1px;
     width: 152px;
     height: 15px;
-    color: #b6b6b6;
-    font-family: Arial;
-    font-size: 16px;
+    color: #000000;
     padding-left: 5px;
     float: left;
 }
@@ -223,99 +178,17 @@ h2 {
     width: 18px;
     height: 18px;
     background: url(/images/search_button.gif) no-repeat left top;
-    border: 0;
-    margin: 0px 0 0 4px;
-    border: #c7c6c6 solid 1px;
+    margin: 0 0 0 4px;
+    border: #000000 solid 1px;
     cursor: pointer;
-}
-
-/********************* Slider ******************************/
-
-#header .slider {
-    width: 904px;
-    height: 264px;
-    position: absolute;
-    top: 285px;
-    left: 44px;
-    /* background:url(/images/slider_img.png) no-repeat left top;*/
-    z-index: 2;
-}
-
-#header .slider .arrl {
-    width: 41px;
-    height: 67px;
-    position: absolute;
-    top: 95px;
-    left: -41px;
-    background: url(/images/arrl.png) no-repeat left top;
-    z-index: 4;
-    cursor: pointer;
-}
-
-#header .slider .arrr {
-    width: 41px;
-    height: 67px;
-    position: absolute;
-    top: 95px;
-    right: -41px;
-    background: url(/images/arrr.png) no-repeat left top;
-    z-index: 4;
-    cursor: pointer;
-}
-
-#header .slider  #cont {
-    overflow: hidden;
-    width: 900px;
-    height: 260px;
-    top: 0px;
-    left: 0px;
-    z-index: 3;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    border: 2px solid #d8d5d5;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-
-}
-
-#header .slider  #cont .items {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-
-#header .slider  #cont .items li {
-    float: left;
-    margin: 0;
-    padding: 0;
-    width: 958px;
-    height: 260px;
-}
-
-#header .slider  #cont .sliderim {
-    width: 958px;
-    height: 260px;
-}
-
-#header .slider_shadow {
-    width: 903px;
-    height: 35px;
-    position: absolute;
-    top: 530px;
-    left: 44px;
-    background: url(/images/slider_shadow.png) no-repeat left top;
-    z-index: 1;
 }
 
 /****************************************/
 .content {
 
     width: 998px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     overflow: hidden;
-    margin-bottom: 30px;
 }
 
 /************* mainmenu *************************/
@@ -339,7 +212,7 @@ h2 {
 #mainmenu .menu li {
     list-style: none;
     margin-bottom: 20px;
-    padding: 6px 0px 0 8px;
+    padding: 6px 0 0 8px;
     float: left;
     width: 183px;
     height: 38px;
@@ -347,18 +220,15 @@ h2 {
 
 }
 
-#mainmenu .menu li  img {
-    margin: 0 6px 0px 0;
+#mainmenu .menu li img {
+    margin: 0 6px 0 0;
     float: left;
 }
 
 #mainmenu .menu li a {
-    padding: 0px;
+    padding: 0;
     color: #454545;
-    margin: 0 0 0px 0;
-
-    font-size: 14px;
-    font-family: Arial;
+    margin: 0 0 0 0;
 }
 
 #mainmenu .menu .with_submenu:hover {
@@ -369,7 +239,7 @@ h2 {
     border-radius: 8px 8px 0 0;
     border-color: #c2c2c2;
     border-width: 1px 1px 0 0;
-    box-shadow: 0px -1px 1px 1px darkgrey;
+    box-shadow: 0 -1px 1px 1px darkgrey;
 
 }
 
@@ -381,6 +251,7 @@ h2 {
 
 #mainmenu .menu li .selected {
     color: #e55c00;
+    font-weight: bold;
 }
 
 #mainmenu ul li ul {
@@ -399,35 +270,32 @@ h2 {
     border-radius: 0 0 8px 8px;
     border: #c2c2c2 solid;
     border-width: 0 1px 1px 1px;
-    box-shadow: 0px 1px 1px darkgrey;
+    box-shadow: 0 1px 1px darkgrey;
 }
 
-#mainmenu .menu li ul  li:hover {
+#mainmenu .menu li ul li:hover {
     background: transparent;
-    borderr-width: 0px;
-    box-shadow: 0px 0px 0px;
+    border-width: 0;
+    box-shadow: 0 0 0;
 
 }
 
-#mainmenu .menu li ul  li {
+#mainmenu .menu li ul li {
     margin: 0 0 10px 0;
-    padding: 0 0 0px 30px;
+    padding: 0 0 0 30px;
     height: auto;
-    width: 141px;
+    width: 160px;
     float: none;
     background: transparent;
 }
 
-#mainmenu .menu  li ul  li  a {
+#mainmenu .menu li ul li a {
     text-decoration: none;
     color: #000;
-    line-height: 15px;
-    font-size: 15px;
-    font-family: Arial;
     font-weight: bold;
 }
 
-#mainmenu .menu  li ul  li  a.hover {
+#mainmenu .menu li ul li a.hover {
     color: #e55c00;
     background: transparent;
     border: 0;
@@ -471,15 +339,14 @@ h2 {
 
 }
 
-.stats .item  div {
+.stats .item div {
     margin-left: 50%;
 }
 
-.stats .item  p {
+.stats .item p {
     padding: 0;
     margin: 0;
     color: #000;
-    font-family: Minion Pro;
     font-size: 18px;
 }
 
@@ -488,7 +355,7 @@ h2 {
     text-decoration: none;
 }
 
-.stats .item  .sost a {
+.stats .item .sost a {
     display: block;
     width: 91px;
     height: 91px;
@@ -497,7 +364,7 @@ h2 {
     background: url(/images/sost.png) no-repeat left top;
 }
 
-.stats .item  .budget a {
+.stats .item .budget a {
     display: block;
     width: 91px;
     height: 91px;
@@ -506,7 +373,7 @@ h2 {
     background: url(/images/budget.png) no-repeat left top;
 }
 
-.stats .item  .lgoti a {
+.stats .item .lgoti a {
     display: block;
     width: 91px;
     height: 91px;
@@ -522,16 +389,15 @@ h2 {
     float: right;
 }
 
-.pressa  .text_heading  .head {
-    color: #6e6e6e;
+.pressa .text_heading .head {
+    color: #000000;
 }
 
 .pressa .item {
-
     text-align: left;
     overflow: hidden;
     padding: 0 0 10px 0;
-    margin: 0 0px 10px 0;
+    margin: 0 0 10px 0;
     border-bottom: 3px solid #c2c2c2;
 }
 
@@ -546,24 +412,19 @@ h2 {
 
 .pressa .item .descript {
     padding-left: 50px;
-
 }
 
 .pressa .item p {
     padding: 0;
     margin: 0;
-    font-size: 13px;
 }
 
 .pressa .item .descript .date {
-    color: #1a74a9;
-    font-family: Minion Pro;
+    color: #000000;
 }
 
 .pressa .item .descript .title a {
-    color: #323232;
-    font-family: Arial;
-
+    color: #000000;
 }
 
 .pressa .item .descript .title a:hover {
@@ -575,8 +436,8 @@ h2 {
     margin: 40px 0 0 0;
 }
 
-.pressa-big  .text_heading  .head {
-    color: #6e6e6e;
+.pressa-big .text_heading .head {
+    color: #000000;
 }
 
 .pressa-big .item {
@@ -602,18 +463,14 @@ h2 {
 .pressa-big .item p {
     padding: 0;
     margin: 0;
-    font-size: 13px;
 }
 
 .pressa-big .item .descript .date {
-    color: #1a74a9;
-    font-family: Minion Pro;
+    color: #000000;
 }
 
 .pressa-big .item .descript .title a {
-    color: #323232;
-    font-family: Arial;
-
+    color: #000000;
 }
 
 .pressa-big .item .descript .title a:hover {
@@ -626,9 +483,7 @@ h2 {
 }
 
 .text p {
-    color: #6E6E6E;
-    font-size: 14px;
-    font-family: Tahoma;
+    color: #000000;
     padding-bottom: 10px
 }
 
@@ -637,36 +492,34 @@ h2 {
     background: url(/images/h1_bg.png) repeat-x left center;
 }
 
-.text_heading  .head {
+.text_heading .head {
     padding: 0 20px 0 0;
 
     font-size: 31px;
     line-height: 31px;
-    color: #0467a2;
+    color: #000000;
     background: #fff;
-    font-family: Minion Pro;
-
 }
 
 /******************** законодательство *******************/
 
 .zakon {
-    margin: 40px 0px 0 55px;
+    margin: 40px 0 0 55px;
     width: 447px;
     float: left;
 
 }
 
-.zakon  .text_heading  .head {
-    color: #e55c00;
+.zakon .text_heading .head {
+    color: #000000;
 }
 
 .zakon .item {
-    margin: 0px 0px 20px 0;
+    margin: 0 0 20px 0;
 }
 
 .zakon .item .date {
-    width: 70px;
+    width: 100px;
     float: left;
     overflow: hidden;
     margin-top: 20px;
@@ -674,13 +527,11 @@ h2 {
 }
 
 .zakon .item .date p {
-    color: #6b6969;
-    font-family: Minion Pro;
-    font-size: 13px;
+    color: #000000;
 }
 
 .zakon .item .descript {
-    padding-left: 70px;
+    padding-left: 105px;
 
 }
 
@@ -690,23 +541,17 @@ h2 {
 
 }
 
-.zakon  .item .descript .title {
-    color: #e55c00;
-    font-family: Arial;
-    font-size: 11px;
-    margin-bottom: 3px;
+.zakon .item .descript .title {
+    color: #000000;
+    margin-bottom: 5px;
 }
 
 .zakon .item .descript .description a {
     color: #000;
-    font-family: Minion Pro;
-    font-size: 14px;
-
 }
 
 .zakon .item .descript .description a:hover {
     text-decoration: none;
-
 }
 
 /******************** footer ************************/
@@ -731,39 +576,27 @@ h2 {
     width: 998px;
 }
 
-#footer .phone {
-    position: absolute;
-    top: -25px;
-    left: 62px;
-    width: 177px;
-    height: 98px;
-    background: url(/images/phone.png) no-repeat left top;
-
-}
-
 #footer .contacts {
-    position: absolute;
-    top: 15px;
-    left: 238px;
+    margin: 15px 15px;
 }
 
 #footer .contacts p {
-    color: #030303;
-    font-family: Arial;
-    font-size: 13px;
+    color: #000000;
     margin: 0;
     padding: 0;
 }
 
-#footer .made a {
+#footer .made {
+    text-align: right;
     position: absolute;
-    display: block;
     top: 15px;
-    right: 75px;
-    width: 89px;
-    height: 47px;
-    background: url(/images/invoice.png) no-repeat left top;
+    right: 15px;
+}
 
+#footer .made a {
+    text-align: right;
+    color: #000000;
+    text-decoration: none;
 }
 
 /********************************************/

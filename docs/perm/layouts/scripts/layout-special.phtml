@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>Официальный сайт администрации поселка Пермяки</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/styles-special.css"/>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
+
+    <script type="text/javascript" src="/js/scripts.js"></script>
+
+    <!--[if lte IE 6]>
+    <script src="/js/png.js"></script>
+    <script>DD_belatedPNG.fix('div, a, img, span');</script>
+    <![endif]-->
+    <!--[if !IE 7]>
+    <style type="text/css">
+        #wrap {
+            display: table;
+            height: 100%
+        }
+    </style>
+    <![endif]-->
+
+</head>
+<body>
+
+<div id="header">
+    <div class="font-resize">Размер шрифта:
+        <a href="#" class="small">A</a>
+        <a href="#" class="medium">A</a>
+        <a href="#" class="large">A</a>
+    </div>
+    
+    <div class="site-name">
+        <a href="/" class="big">Пермяки</a>
+        <p>Официальный сайт<br/>администрации поселка</p>
+    </div>
+    
+    <div class="posel">Сельские поселения Беловского района:</div>
+    <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a></div>
+    
+    <div class="phone">+7 <?= $this->escape($this->mainPhone->phone); ?></div>
+    
+    <div class="ask"><a href="/obaeniya/inenepiemnaya/" title="Задать вопрос">Задать вопрос</a></div>
+    
+    <div class="search">
+        <form action="/search/index/" method="post">
+            <input type="text" name="query" class="search_field" value="поиск" onClick="this.value=''" onFocusOut="if(this.value==''){this.value='поиск';}"/>
+            <input type="submit" name="submit_search" class="search_button" value=""/>
+        </form>
+    </div>
+
+    <div id="mainmenu">
+        <div class="menu">
+
+            <ul>
+                <?php foreach ($this->menuList as $group): ?>
+                    <?php $itemList = $group->getItemList(); ?>
+                    <li <?php if ($itemList !== false): ?>class="with_submenu"<?php endif; ?> >
+                        <?php if ($group->getHandler() !== null): ?>
+                            <a href="<?= $this->escape($group->getUrl($this->authUserRole)); ?>" <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                                class="selected"
+                            <?php endif; ?> title="<?= $this->escape($group->title); ?>"><?= $this->escape($group->title); ?></a>
+                        <?php else: ?>
+                            <a href="/" <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                                class="selected"
+                            <?php endif; ?>><?= $this->escape($group->title) ?></a>
+                        <?php endif; ?>
+                        <?php if ($itemList !== false): ?>
+                            <ul>
+                                <?php foreach ($itemList as $item): ?>
+                                    <?php if ($item->isVisible): ?>
+                                        <li><a href="<?= $this->escape($item->getUrl($this->authUserRole)); ?>" title="<?= $this->escape($item->title); ?>"><?= $this->escape($item->title); ?></a></li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+
+                <?php if ($this->authUserRole !== 'guest'): ?>
+                    <li class="with_submenu"><img src="/images/menu_separator.png"/><a href="/menu/">Управление разделами</a>
+                        <ul>
+                            <li><a href="/banner/">Баннеры</a></li>
+                            <li><a href="/phone/">Телефоны</a></li>
+                            <li><?= $this->authUser; ?> <a href="/login/logout/">(выход)</a></li>
+                        </ul>
+                    </li>
+
+                <?php endif; ?>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="content">
+
+    <?= $this->layout()->content; ?>
+
+    <div class="clear"></div>
+
+</div>
+
+
+<div class="pad"></div>
+<div id="footer">
+    <div class="center">
+        <div class="contacts">
+            <p>+7 <?= $this->escape($this->mainPhone->phone); ?></p>
+
+            <p><?= $this->escape($this->mainPhone->address); ?></p>
+
+            <p><?= $this->escape($this->mainPhone->postIndex); ?></p>
+
+        </div>
+        <div class="made"><a href="/">inVoice Group</a></div>
+    </div>
+</div>
+
+</body>
+</html>

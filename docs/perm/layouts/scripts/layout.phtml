@@ -4,14 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <title>Официальный сайт администрации поселка Пермяки</title>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
-    <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
-
-    <script src="/js/scripts.js" type="text/javascript"></script>
-
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
-    <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
+
+    <script type="text/javascript" src="/js/scripts.js"></script>
 
     <!--[if lte IE 6]>
     <script src="/js/png.js"></script>
@@ -39,6 +39,7 @@
         <p>администрации поселка</p>
     </div>
     <div class="posel">Сельские поселения Беловского района:</div>
+    <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal'?'special':'normal'; ?>"><?= $this->currentSiteMode == 'normal'?'Версия для слабовидящих':'Обычная версия'; ?></a></div>
     <div class="map"></div>
     <div class="menu_icons">
         <ul class="icons">
