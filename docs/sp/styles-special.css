@@ -6,16 +6,39 @@ html, body {
 }
 
 body {
-    background: #fff;
+    background: #ffffff;
     min-height: 100%;
     height: auto !important;
     position: relative;
 }
 
+body {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Times, sans-serif;
+}
+
+.small {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: Times, sans-serif;
+}
+
+.medium {
+    font-size: 16px;
+    line-height: 22px;
+    font-family: Times, sans-serif;
+}
+
+.large {
+    font-size: 20px;
+    line-height: 22px;
+    font-family: Times, sans-serif;
+}
+
 h1 {
     font-size: 35px;
     color: #047bc2;
-    font-family: Times New Roman;
     padding: 0;
     margin: 0;
 }
@@ -23,7 +46,6 @@ h1 {
 h2 {
     font-size: 26px;
     color: #047bc2;
-    font-family: Times New Roman;
     padding: 0;
     margin: 0;
 }
@@ -36,16 +58,16 @@ p {
 #header_top {
     position: relative;
     width: 100%;
-    height: 26px;
-    background: url(/images/header_bg.png) repeat-x left top;
+    height: 40px;
+    background: #0267a2;
 }
 
 #header_top .site-mode {
     position: absolute;
-    left: 15px;
+    left: 290px;
     top: 4px;
     color: #ffffff;
-    font-family: Minion Pro, serif;
+    font-family: Times, serif;
     font-size: 18px;
     text-align: center;
 
@@ -55,80 +77,48 @@ p {
 
 #header_top .site-mode a {
     color: #ffffff;
-    font-family: Minion Pro, serif;
+    font-family: Times, serif;
     font-size: 18px;
+    text-align: center;
+}
+
+.font-resize {
+    margin-left: 10px;
+    color: #ffffff;
+    vertical-align: middle;
+}
+
+.font-resize a {
+    display: inline-block;
+    margin: 2px 2px;
+    padding: 3px;
+    border: #ffffff 1px solid;
+    color: #ffffff;
+    width: 25px;
+    height: 25px;
+    text-decoration: none;
     text-align: center;
 }
 
 .header_top_center {
     position: relative;
     width: 1000px;
-    height: 26px;
+    height: 40px;
     margin: 0 auto;
 
 }
 
 #header_top .posel {
     position: absolute;
-    left: 306px;
-    color: #e4e8dc;
-    font-family: Times New Roman;
-    font-size: 16px;
+    top: 4px;
+    left: 50%;
+    color: #ffffff;
     text-align: left;
     line-height: 26px;
 }
 
 .clear {
     clear: both;
-}
-
-/******************************** маленькие иконки в шапке ********************/
-#header_top .menu_icons {
-    height: 18px;
-    position: absolute;
-    right: 46px;
-    top: 5px;
-
-}
-
-#header_top .menu_icons .icons {
-    height: 18px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-}
-
-#header_top .menu_icons .icons li {
-    list-style: none;
-    margin: 0 0 0 28px;
-    padding: 0;
-    width: 13px;
-    height: 13px;
-    float: left;
-
-}
-
-#header_top .menu_icons .icons a {
-    width: 13px;
-    height: 13px;
-    display: block;
-}
-
-#header_top .menu_icons .icons .item1 a {
-    background: url(/images/home_icon.gif) no-repeat left center;
-}
-
-#header_top .menu_icons .icons .item2 a {
-    background: url(/images/star_icon.gif) no-repeat left center;
-}
-
-#header_top .menu_icons .icons .item3 a {
-    background: url(/images/sitemap_icon.gif) no-repeat left center;
-}
-
-#header_top .menu_icons .icons .item4 a {
-    background: url(/images/mail_icon.gif) no-repeat left center;
 }
 
 /*********************************************/
@@ -154,34 +144,22 @@ p {
     overflow: hidden;
 }
 
-#center .sidebar .flag {
-    position: absolute;
-    top: 22px;
-    left: 197px;
-    width: 123px;
-    height: 740px;
-    background: url(/images/flag.png) no-repeat left center;
-    z-index: 1;
-}
-
-/************* mainmenu *************************/
-#mainmenu {
-    position: relative;
-    left: 0;
-    top: 46px;
-    width: 176px;
+/************* mainmenu-static *************************/
+#mainmenu-static {
+    margin-top: 20px;
+    width: 250px;
     z-index: 2;
 }
 
-#mainmenu .menu {
+#mainmenu-static .menu {
     list-style: none;
     margin: 0;
     padding: 0;
     position: relative;
-    width: 176px;
+    width: 250px;
 }
 
-#mainmenu .menu li {
+#mainmenu-static .menu li {
     position: relative;
     list-style: none;
     margin: 0 0 7px 0;
@@ -190,72 +168,62 @@ p {
     text-align: right;
 }
 
-#mainmenu .menu li a {
+#mainmenu-static .menu li a {
     display: block;
     position: relative;
     margin: 0;
     padding: 10px 7px;
-    color: #0167a4;
-    line-height: 18px;
-    font-size: 18px;
-    font-family: Times New Roman;
+    color: #0270b2;
 }
 
-#mainmenu .menu li a:hover {
-    background: #0271b2;
+#mainmenu-static .menu li a:hover {
+    background: #0270b2;
     color: #fff;
+    text-decoration: none;
+}
+
+#mainmenu-static .menu li .selected {
+    background: #0270b2;
+    color: #ffffff;
     text-decoration: none;
 
 }
 
-#mainmenu .menu li .selected {
-    background: #0271b2;
-    color: #fff;
-    text-decoration: none;
-
-}
-
-#mainmenu ul li ul {
-    display: none;
+#mainmenu-static ul li ul {
     position: relative;
-    width: 176px;
+    width: 230px;
     color: #000;
-    padding: 15px 0 10px 0;
-
+    padding: 10px 0 10px 0;
 }
 
-#mainmenu .menu li ul li {
-    margin: 0 20px 0 0;
+#mainmenu-static .menu li ul li {
+    margin: 2px 20px 0 0;
 }
 
-#mainmenu .menu li ul li a {
+#mainmenu-static .menu li ul li a {
     text-decoration: underline;
     color: #000;
     padding: 0;
-    line-height: 20px;
-    font-size: 17px;
-    font-family: Times New Roman;
-
 }
 
-#mainmenu .menu li ul li a:hover {
-    color: #0267a2;
+#mainmenu-static .menu li ul li a:hover {
+    color: #0270b2;
     background: transparent;
 }
 
-#mainmenu .menu li ul li a.hover {
-    color: #0267a2;
+#mainmenu-static .menu li ul li a.hover {
+    color: #0270b2;
     background: transparent;
 
 }
 
-#mainmenu .menu li ul li .selected {
-    color: #0267a2;
+#mainmenu-static .menu li ul li .selected {
+    color: #0270b2;
     background: transparent;
 }
 
-#mainmenu .menu li a.hover {
-    background: #0271b2;
+#mainmenu-static .menu li a.hover {
+    background: #0270b2;
     color: #fff;
     text-decoration: none;
     -moz-border-radius: 8px;
@@ -308,66 +276,45 @@ p {
 .content_header {
     position: relative;
     width: 729px;
-    height: 344px;
-
+    height: 170px;
 }
 
-.content_header .sitename {
-    position: absolute;
-    top: 0;
-    left: 36px;
+.content_header .site-name {
+    margin-top: 10px;
     z-index: 3;
 
 }
 
-.content_header .sitename a {
+.content_header .site-name a {
     text-decoration: none;
 }
 
-.content_header .sitename p {
+.content_header .site-name p {
     color: #0270b2;
-    font-family: Times New Roman;
-    font-size: 16px;
     text-align: left;
     padding: 0;
     margin: 0;
     font-weight: bold;
-    line-height: 18px
 }
 
-.content_header .sitename .big {
+.content_header .site-name .big {
     font-size: 39px;
-    font-weight: 0;
-    line-height: 55px
-}
-
-.logo {
-    position: absolute;
-    width: 112px;
-    height: 88px;
-    top: 0px;
-    right: 46px;
-    background: url(/images/gerb.png) no-repeat left center;
-    z-index: 2;
+    font-weight: normal;
+    line-height: 55px;
+    color: #0270b2;
 }
 
 .content_header .header_img {
-    position: absolute;
-    width: 677px;
-    height: 241px;
-    top: 100px;
-    left: 20px;
-    background: url(/images/header_img.png) no-repeat left center;
+    height: 41px;
     z-index: 2;
-
 }
 
 /******************************** поиск ********************/
 .search {
     position: absolute;
-    top: 173px;
-    left: 11px;
-    width: 655px;
+    top: 102px;
+    left: 0;
+    width: 729px;
     height: 37px;
 
     background: url(/images/search_bg.png) repeat-x left center;
@@ -381,61 +328,50 @@ p {
     top: 9px;
     left: 9px;
     border: 0;
-    width: 484px;
+    width: 580px;
     height: 18px;
-    color: #000;
-    font-family: Arial;
-    font-size: 16px;
+    color: #000000;
     padding-left: 5px;
     float: left;
     margin: 0;
 }
 
 .search .search_button {
-    color: #fff;
-    font-family: Times New Roman;
-    font-size: 16px;
+    color: #ffffff;
     background: transparent;
     border: 0;
     position: absolute;
-    top: 7px;
-    right: 50px;
+    top: 10px;
+    right: 40px;
     width: 60px;
     cursor: pointer;
 }
 
 /********** pathway *********************/
 .content_center {
-    margin-left: 35px;
+    margin-left: 5px;
 }
 
 .content_center_left {
-    width: 458px;
+    width: 460px;
     float: left;
 }
 
 .content_center_right {
-    width: 185px;
+    width: 210px;
     float: right;
 }
 
 .pathway {
     color: #000;
-    font-size: 14px;
-    font-family: Arial;
-
 }
 
 .pathway .separator {
-
-    color: #0478be;
+    color: #0270b2;
 }
 
 .pathway a {
     color: #000;
-    font-size: 14px;
-    font-family: Arial;
-
 }
 
 .pathway a:hover {
@@ -446,37 +382,32 @@ p {
 /******************* text ********************/
 
 .text_heading {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 .cont_text p {
-    color: #323232;
-    font-size: 14px;
-    font-family: Arial;
+    color: #000000;
     margin: 0 0 10px 0;
-    padding: 0
-
+    padding: 0;
 }
 
 /****************** news *****************************/
 
 .news {
     margin-top: 20px;
-    width: 165px;
+    width: 190px;
     padding-right: 20px;
 }
 
 .news .item {
     padding-bottom: 10px;
-    border-bottom: 1px solid #94b3c5;
+    border-bottom: 1px solid #000000;
 
 }
 
 .news .date {
     text-decoration: underline;
-    font-size: 15px;
-    color: #0065a1;
-    font-family: Times New Roman;
+    color: #0270b2;
 }
 
 .news p {
@@ -485,11 +416,7 @@ p {
 
 .news p a {
     text-decoration: none;
-    font-size: 12px;
-    line-height: 12px;
-    color: #323232;
-    font-family: Arial;
-
+    color: #000000;
 }
 
 .news p a:hover {
@@ -499,11 +426,11 @@ p {
 
 /******************* пресса *************************/
 .pressa {
-    margin: 40px 0px 0 0;
+    margin: 40px 0 0 0;
 }
 
 .pressa .item {
-    width: 202px;
+    width: 302px;
     float: left;
     text-align: left;
     overflow: hidden;
@@ -511,7 +438,7 @@ p {
 }
 
 #end_item_pressa {
-    margin: 0 0px 0 0;
+    margin: 0 0 0 0;
 }
 
 .pressa .item .img {
@@ -519,30 +446,25 @@ p {
     height: 41px;
     float: left;
     overflow: hidden;
-    border: 1px solid #3faaec;
+    border: 1px solid #0270b2;
     margin-top: 17px;
 }
 
 .pressa .item .descript {
     padding-left: 50px;
-
 }
 
 .pressa .item p {
     padding: 0;
     margin: 0;
-    font-size: 11px;
 }
 
 .pressa .item .descript .date {
-    color: #1a74a9;
-    font-family: Minion Pro;
+    color: #0270b2;
 }
 
 .pressa .item .descript .title a {
-    color: #323232;
-    font-family: Arial;
-
+    color: #000000;
 }
 
 .pressa .item .descript .title a:hover {
@@ -550,80 +472,55 @@ p {
 }
 
 .pressa .item .descript .text {
-    font-size: 11px;
 }
 
 /******************** законодательство *******************/
 
 .zakon {
     position: relative;
-    margin: 40px 0px 40px 25px;
+    margin: 40px 0 0 0;
     padding: 15px;
-    width: 625px;
+    width: 724px;
     min-height: 296px;
     height: 100%;
-    background: #f1f0ef;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-
-}
-
-.zakon_shadow {
-    position: absolute;
-    bottom: -19px;
-    left: 0px;
-    width: 655px;
-    height: 19px;
-    background: url(/images/zakon_shadow.png) no-repeat left center;
 }
 
 .zakon .item {
-    margin: 0px 0px 20px 0;
+    margin: 0 0 20px 0;
 }
 
 .zakon .item .date {
-    color: #000;
+    color: #000000;
     text-align: left;
-    font-size: 15px;
     text-decoration: underline;
-    font-family: Times New Roman;
 }
 
 .zakon .item .description a {
-    color: #047bc2;
-    font-family: Arial;
-    font-size: 12px;
+    color: #0270b2;
     text-decoration: none;
-
 }
 
 .zakon .item .description a:hover {
-
     text-decoration: underline;
 }
 
 .zakon .pages {
     text-align: center;
-    width: 100;
-    font-family: Arial;
-    font-size: 17px;
+    width: 100px;
     font-weight: bold;
-
 }
 
 .zakon .pages span {
-    color: #047bc2;
-
+    color: #0270b2;
 }
 
 .zakon .pages a {
-    color: #000;
+    color: #000000;
 }
 
 .zakon .pages a:hover {
     text-decoration: none;
-    color: #047bc2;
+    color: #0270b2;
 }
 
 /******************** footer ************************/
@@ -637,7 +534,6 @@ p {
     bottom: 0;
     height: 112px;
     width: 100%;
-    background: url(/images/footer_bg.gif) repeat-x left bottom;
     clear: both;
     border-top: 1px solid #9fa0a0;
 }
@@ -658,9 +554,7 @@ p {
 }
 
 #footer .contacts p {
-    color: #0371b5;
-    font-family: Times New Roman;
-    font-size: 20px;
+    color: #0270b2;
     margin: 0;
     padding: 0;
 }
@@ -670,13 +564,9 @@ p {
 }
 
 #footer .made a {
-    position: absolute;
-    display: block;
-    margin-left: -47px;
-    width: 94px;
-    height: 53px;
-    background: url(/images/invoice.png) no-repeat left top;
-
+    text-align: right;
+    color: #000000;
+    text-decoration: none;
 }
 
 /********************************************/
