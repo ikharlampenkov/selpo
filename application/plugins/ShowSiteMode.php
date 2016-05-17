@@ -8,6 +8,8 @@ class ShowSiteMode extends Zend_Controller_Plugin_Abstract
         $mainSession = new Zend_Session_Namespace('siteMode');
         
         $view->assign('currentSiteMode', $mainSession->mode);
+        $view->assign('currentSiteColor', $mainSession->color);
+        $view->assign('currentSiteFontSize', $mainSession->fontSize);
     }
 
 }

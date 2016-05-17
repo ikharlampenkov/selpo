@@ -21,6 +21,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $mainSession = new Zend_Session_Namespace('siteMode');
         if (!isset($mainSession->mode)) {
             $mainSession->mode = 'normal';
+            $mainSession->color = 'white';
+            $mainSession->fontSize = 'small';
         }
 
         if ($mainSession->mode == 'normal') {

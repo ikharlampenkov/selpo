@@ -18,6 +18,8 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $mainSession = new Zend_Session_Namespace('siteMode');
+
         $oContentPage = SM_Module_ContentPage::getInstanceByTitle('main_page');
 
         include_once Zend_Registry::get('production')->editor->path . 'ckeditor/ckeditor.php';
@@ -58,6 +60,10 @@ class IndexController extends Zend_Controller_Action
 
         $documentList = SM_Module_Document::getTopDocument(SM_Menu_Item::getInstanceByLink('nomaivnopavove_ak'));
         $this->view->assign('documentList', $documentList);
+
+        if ($mainSession->mode == 'special') {
+            $this->render('index-special');
+        }
     }
 
     public function changeModeAction()
@@ -73,6 +79,29 @@ class IndexController extends Zend_Controller_Action
         $mainSession->mode = $mode;
 
         $this->redirect('/');
+    }
+
+    public function changeParameterAction()
+    {
+        $mainSession = new Zend_Session_Namespace('siteMode');
+        
+        $this->_helper->layout()->disableLayout();
+        Zend_Controller_Action_HelperBroker::removeHelper('viewRenderer');
+
+        $type = $this->getRequest()->getParam('type');
+        $value = $this->getRequest()->getParam('value');
+        if ($type == 'color') {
+            $mainSession->color = $value;
+        } elseif ($type == 'size') {
+            $mainSession->fontSize = $value;
+        }
+
+        $json = Zend_Json::encode(array('result' => 'ok'));
+
+        $this->getResponse()->setBody($json)->setHeader(
+            "content-type",
+            "application/json", true
+        );
     }
 
 
