@@ -299,19 +299,7 @@ body {
     width: 990px;
     min-height: 700px;
     height: 100%;
-    background: #fff;
     padding: 20px 0 0 0;
-    border-bottom: 3px solid #000000;
-}
-
-.black #center {
-    position: relative;
-    width: 990px;
-    min-height: 700px;
-    height: 100%;
-    background: #fff;
-    padding: 20px 0 0 0;
-    border-bottom: 3px solid #ffffff;
 }
 
 #center .sidebar {
@@ -604,6 +592,17 @@ body {
     width: 990px;
     clear: both;
     vertical-align: top;
+    border-top: 3px solid #000000;
+}
+
+.black #footer {
+    position: absolute;
+    bottom: 0;
+    height: 105px;
+    width: 990px;
+    clear: both;
+    vertical-align: top;
+    border-top: 3px solid #ffffff;
 }
 
 #footer .contacts {
