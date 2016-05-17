@@ -27,15 +27,27 @@
     <![endif]-->
 
 </head>
-<body class="small">
+<body class="<?= $this->escape($this->currentSiteFontSize); ?> <?= $this->escape($this->currentSiteColor); ?>">
 <div id="wrap">
+    <div class="site-mode-panel">
+        <div class="site-color-change">Цвет сайта:
+            <a href="#" class="white">A</a>
+            <a href="#" class="black">A</a>
+        </div>
+
+        <div class="site-font-resize">Размер шрифта:
+            <a href="#" class="small">A</a>
+            <a href="#" class="medium">A</a>
+            <a href="#" class="large">A</a>
+        </div>
+
+        <div class="site-mode-change">
+            <a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a>
+        </div>
+    </div>
+
     <div id="header">
         <div class="header_top">
-            <div class="font-resize">Размер шрифта:
-                <a href="#" class="small">A</a>
-                <a href="#" class="medium">A</a>
-                <a href="#" class="large">A</a>
-            </div>
             <div class="search">
                 <form action="/search/index/" method="post">
                     <input type="text" name="query" class="search_field" value="поиск" onClick="this.value=''" onFocusOut="if(this.value==''){this.value='поиск';}"/>
@@ -50,12 +62,10 @@
         </div>
 
         <div class="posel">Сельские поселения Беловского района</div>
-        <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a></div>
         <div class="phone">+7 <?php echo $this->escape($this->mainPhone->phone); ?></div>
         <div class="ask"><a href="/obaeniya/inenepiemnaya/">Задать вопрос</a></div>
 
     </div>
-
 
     <div id="center">
         <div class="sidebar">
