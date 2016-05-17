@@ -1,0 +1,58 @@
+<div class="cont_text">
+    <?= $this->contentPage->content; ?>
+</div>
+
+<?php if ($this->newsList !== false): ?>
+    <div class="pressa">
+        <div class="text_heading">
+            <span class="head">Пресс служба</span>
+        </div>
+
+        <?php foreach ($this->newsList as $item): ?>
+            <div class="item">
+                <div class="img">
+                    <?php if ($item->file->getName()): ?>
+                        <img src="/files<?= $this->escape($item->file->getSubPath()); ?>/<?= $this->escape($item->file->getPreview()); ?>"/>
+                    <?php endif; ?>
+                </div>
+
+                <div class="descript">
+                    <p class="date"><?= $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></p>
+
+                    <p class="title"><a href="<?= $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $this->linkInfoNews->link . '-viewnews') ?>"><?= $this->escape($item->title); ?></a></p>
+
+                    <p class="text"><?= $this->escape($item->shortText); ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+
+        <div class="clear"></div>
+    </div>
+<?php endif; ?>
+
+<div class="zakon">
+    <div class="text_heading">
+        <span class="head">Законодательство</span>
+    </div>
+
+    <?php if ($this->documentList !== false): ?>
+        <?php foreach ($this->documentList as $item): ?>
+            <div class="item">
+                <div class="date"><p><?= $this->escape(date('d.m.Y', strtotime($item->dateCreate))); ?></p></div>
+                <div class="descript">
+                    <p class="title">Нормативно-правовые акты</p>
+
+                    <p class="description">
+                        <?php if (is_object($item->parent)): ?>
+                            <a href="<?= $this->url(array('controller' => 'document', 'action' => 'viewdoc', 'id' => $item->id, 'parent' => $item->parent->id), $item->link->group->getLink() . '-' . $item->link->link . '-viewdoc') ?>" title="<?= $this->escape($item->title); ?>"><?= $this->escape($item->title); ?></a>
+                        <?php else: ?>
+                            <a href="<?= $this->url(array('controller' => 'document', 'action' => 'viewdoc', 'id' => $item->id, 'parent' => '0'), $item->link->group->getLink() . '-' . $item->link->link . '-viewdoc') ?>" title="<?= $this->escape($item->title); ?>"><?= $this->escape($item->title); ?></a>
+                        <?php endif; ?>
+                    </p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+</div>
