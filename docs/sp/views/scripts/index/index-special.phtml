@@ -2,25 +2,9 @@
     <div class="text_heading">
         <h1>О нас</h1>
     </div>
+
     <div class="cont_text">
-        <?php if ($this->authUserRole !== 'guest'): ?>
-
-            <?php if (isset($this->exception_msg)): ?>
-                <div>Ошибка: <?= $this->escape($this->exception_msg); ?></div>
-                <br/>
-            <?php endif; ?>
-
-            <form action="<?= $this->url(array('controller' => 'index', 'action' => 'index', 'title' => $this->contentPage->pageTitle)); ?>" method="post">
-
-                <div><?= $this->ckeditor; ?></div>
-
-                <input id="save" name="save" type="submit" value="Сохранить"/>
-            </form>
-            <br/>
-        <?php else: ?>
-
-            <?= $this->contentPage->content; ?>
-        <?php endif; ?>
+        <?= $this->contentPage->content; ?>
     </div>
 </div>
 

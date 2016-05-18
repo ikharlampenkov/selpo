@@ -27,18 +27,22 @@
     <![endif]-->
 
 </head>
-<body class="small">
-<div id="header_top">
-    <div class="header_top_center">
-        <div class="font-resize">Размер шрифта:
-            <a href="#" class="small">A</a>
-            <a href="#" class="medium">A</a>
-            <a href="#" class="large">A</a>
-        </div>
+<body class="<?= $this->escape($this->currentSiteFontSize); ?> <?= $this->escape($this->currentSiteColor); ?>">
 
-        <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a></div>
+<div class="site-mode-panel">
+    <div class="site-color-change">Цвет сайта:
+        <a href="#" class="white">A</a>
+        <a href="#" class="black">A</a>
+    </div>
 
-        <div class="posel">Сельские поселения Беловского района:</div>
+    <div class="site-font-resize">Размер шрифта:
+        <a href="#" class="small">A</a>
+        <a href="#" class="medium">A</a>
+        <a href="#" class="large">A</a>
+    </div>
+
+    <div class="site-mode-change">
+        <a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a>
     </div>
 </div>
 
@@ -115,6 +119,8 @@
                 <a href="/" class="big">Старопестерево</a>
                 <p>Официальный сайт администрации<br/>Старопестеревского сельского поселения.</p>
             </div>
+            
+            <div class="posel">Сельские поселения Беловского района:</div>
 
             <div class="header_img">
                 <div class="search">
