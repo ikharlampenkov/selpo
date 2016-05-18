@@ -126,5 +126,4 @@ function setParameter(type, value) {
             console.log(data);
         }
     });
-
 }
