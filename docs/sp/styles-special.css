@@ -70,6 +70,13 @@ p {
     padding: 0;
 }
 
+img {
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    filter: grayscale(100%);
+}
+
 .clear {
     clear: both;
 }
