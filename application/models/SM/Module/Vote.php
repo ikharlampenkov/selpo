@@ -68,6 +68,7 @@ class SM_Module_Vote
     public static function sendVote($link, $data)
     {
         $mail = static::getVoteEmail($link);
+        //print_r($mail['email']);
 
         $message = 'Вопрос из Интернет-приемной: ' . "\r\n";
         $message .= 'Дата: ' . date('d.m.Y') . "\r\n" .
@@ -78,7 +79,8 @@ class SM_Module_Vote
 
         $header = 'From: vote@мохово.рф';
         if (!empty($mail['email'])) {
-            $result = mail($mail['email'], 'Интернет-приемная', mb_convert_encoding($message, 'windows-1251', 'UTF-8'), $header);
+            $subject = mb_convert_encoding('Интернет-приемная', 'windows-1251', 'UTF-8');
+            $result = mail($mail['email'], $subject, mb_convert_encoding($message, 'windows-1251', 'UTF-8'), $header);
             if ($result == false) {
                 throw new Exception('Cannot send email.');
             }
