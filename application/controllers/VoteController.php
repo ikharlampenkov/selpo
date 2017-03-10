@@ -17,6 +17,9 @@ class VoteController extends Zend_Controller_Action
 
     public function init()
     {
+        ini_set('display_errors', 1);
+        ini_set('error_reporting', E_ALL);
+
         $this->_link = SM_Menu_Item::getInstanceByLink($this->getRequest()->getParam('link'));
         $this->view->assign('link', $this->_link->getLink());
 
@@ -56,7 +59,7 @@ class VoteController extends Zend_Controller_Action
             try {
                 SM_Module_Vote::sendVote($this->_link, $data);
                 $mainSession->isComplite = true;
-                $this->redirect('/' . $this->_link->getGroup()->getLink() . '/' . $this->_link->getLink());
+                //$this->redirect('/' . $this->_link->getGroup()->getLink() . '/' . $this->_link->getLink());
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }

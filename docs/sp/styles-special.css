@@ -203,7 +203,7 @@ img {
 /*********************************************/
 #center {
     position: relative;
-    width: 1000px;
+    width: 1200px;
     min-height: 800px;
     height: 100%;
     margin: 9px auto 20px auto;
@@ -219,7 +219,7 @@ img {
 
 #center .content {
     float: right;
-    width: 729px;
+    width: 929px;
     overflow: hidden;
 }
 

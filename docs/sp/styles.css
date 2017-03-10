@@ -134,7 +134,7 @@ p {
 /*********************************************/
 #center {
     position: relative;
-    width: 1000px;
+    width: 1200px;
     min-height: 800px;
     height: 100%;
     margin: 9px auto 20px auto;
@@ -150,7 +150,7 @@ p {
 
 #center .content {
     float: right;
-    width: 729px;
+    width: 929px;
     overflow: hidden;
 }
 
@@ -415,7 +415,7 @@ p {
 }
 
 .content_center_right {
-    width: 185px;
+    width: 285px;
     float: right;
 }
 
@@ -462,7 +462,7 @@ p {
 
 .news {
     margin-top: 20px;
-    width: 165px;
+    width: 265px;
     padding-right: 20px;
 }
 

@@ -9,13 +9,16 @@
 class DocumentController extends Zend_Controller_Action
 {
     /**
-     * @var SM_Menu_Item
+     * @var SM_Menu_Item|SM_Menu_Item
      */
     protected $_link;
 
     public function init()
     {
         $this->_link = SM_Menu_Item::getInstanceByLink($this->getRequest()->getParam('link'));
+        if ($this->_link == false) {
+            $this->_link = SM_Menu_Group::getInstanceByLink($this->getRequest()->getParam('link'));
+        }
         $this->view->assign('link', $this->_link->getLink());
 
         $this->view->assign('linkInfo', $this->_link);

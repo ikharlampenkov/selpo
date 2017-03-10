@@ -6,7 +6,6 @@
  * Time: 21:38
  * To change this template use File | Settings | File Templates.
  */
-
 /*
  * CREATE TABLE IF NOT EXISTS `vote_email` (
    `link_id` int(10) unsigned NOT NULL,
@@ -22,7 +21,7 @@ class SM_Module_Vote
      */
     protected $_db = null;
 
-    public function  __construct()
+    public function __construct()
     {
         $config = Zend_Registry::get('production');
         $this->_db = Zend_Db::factory($config->resources->db->adapter, $config->resources->db->params);
@@ -69,20 +68,25 @@ class SM_Module_Vote
     public static function sendVote($link, $data)
     {
         $mail = static::getVoteEmail($link);
+        //print_r($mail['email']);
 
         $message = 'Вопрос из Интернет-приемной: ' . "\r\n";
         $message .= 'Дата: ' . date('d.m.Y') . "\r\n" .
-                'Фамилия имя отчество: ' . $data['fio'] . "\r\n" .
-                'Почтовый адрес: ' . $data['address'] . "\r\n" .
-                'E-mail: ' . $data['email'] . "\r\n" .
-                'Текст сообщения: ' . $data['short_text'] . "\r\n" . "\r\n"; //'Телефон: ' . $data['phone'] . "\r\n" .
+            'Фамилия имя отчество: ' . $data['fio'] . "\r\n" .
+            'Почтовый адрес: ' . $data['address'] . "\r\n" .
+            'E-mail: ' . $data['email'] . "\r\n" .
+            'Текст сообщения: ' . $data['short_text'] . "\r\n" . "\r\n"; //'Телефон: ' . $data['phone'] . "\r\n" .
 
         $header = 'From: vote@мохово.рф';
         if (!empty($mail['email'])) {
-            mail($mail['email'], 'Интернет-приемная', mb_convert_encoding($message, 'windows-1251', 'UTF-8'), $header);
+            $subject = mb_convert_encoding('Интернет-приемная', 'windows-1251', 'UTF-8');
+            $result = mail($mail['email'], $subject, mb_convert_encoding($message, 'windows-1251', 'UTF-8'), $header);
+            if ($result == false) {
+                throw new Exception('Cannot send email.');
+            }
+        } else {
+            throw new Exception('Not found email address.');
         }
-
-
     }
 
 }
