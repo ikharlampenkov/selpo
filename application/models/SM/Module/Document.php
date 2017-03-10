@@ -337,7 +337,7 @@ class SM_Module_Document
     public static function getTopDocument($link)
     {
         try {
-            $sql = 'SELECT * FROM document WHERE link_id=:link_id ORDER BY date_create LIMIT ' . SM_Module_Document::TOP_DOCUMENT_COUNT;
+            $sql = 'SELECT * FROM document WHERE link_id=:link_id ORDER BY date_create DESC LIMIT ' . SM_Module_Document::TOP_DOCUMENT_COUNT;
             $bind = array('link_id' => $link->getId());
 
             $config = Zend_Registry::get('production');

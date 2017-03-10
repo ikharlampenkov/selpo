@@ -297,7 +297,7 @@ class SM_Module_News
     public static function getAllInstance($link)
     {
         try {
-            $sql = 'SELECT * FROM news WHERE link_id=:link_id ';
+            $sql = 'SELECT * FROM news WHERE link_id=:link_id ORDER BY date_public DESC';
             $bind = array('link_id' => $link->getId());
 
             $config = Zend_Registry::get('production');
