@@ -463,11 +463,9 @@ img {
 }
 
 .pressa .item {
-    width: 302px;
-    float: left;
-    text-align: left;
+    text-align: justify;
     overflow: hidden;
-    margin: 0 60px 0 0;
+    margin: 0 0 20px 0;
 }
 
 #end_item_pressa {
@@ -502,6 +500,8 @@ img {
 }
 
 .pressa .item .descript .text {
+    margin-top: 5px;
+    text-align: justify;
 }
 
 /******************** законодательство *******************/

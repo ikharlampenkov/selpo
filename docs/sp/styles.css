@@ -15,7 +15,7 @@ body {
 h1 {
     font-size: 35px;
     color: #047bc2;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
     padding: 0;
     margin: 0;
 }
@@ -23,7 +23,7 @@ h1 {
 h2 {
     font-size: 26px;
     color: #047bc2;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
     padding: 0;
     margin: 0;
 }
@@ -72,7 +72,7 @@ p {
     position: absolute;
     left: 306px;
     color: #e4e8dc;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
     font-size: 16px;
     text-align: left;
     line-height: 26px;
@@ -198,7 +198,7 @@ p {
     color: #0167a4;
     line-height: 18px;
     font-size: 18px;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
 }
 
 #mainmenu .menu li a:hover {
@@ -234,7 +234,7 @@ p {
     padding: 0;
     line-height: 20px;
     font-size: 17px;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
 
 }
 
@@ -326,7 +326,7 @@ p {
 
 .content_header .sitename p {
     color: #0270b2;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
     font-size: 16px;
     text-align: left;
     padding: 0;
@@ -337,7 +337,7 @@ p {
 
 .content_header .sitename .big {
     font-size: 39px;
-    font-weight: 0;
+    font-weight: normal;
     line-height: 55px
 }
 
@@ -345,7 +345,7 @@ p {
     position: absolute;
     width: 112px;
     height: 88px;
-    top: 0px;
+    top: 0;
     right: 46px;
     background: url(/images/gerb.png) no-repeat left center;
     z-index: 2;
@@ -384,7 +384,7 @@ p {
     width: 484px;
     height: 18px;
     color: #000;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 16px;
     padding-left: 5px;
     float: left;
@@ -393,7 +393,7 @@ p {
 
 .search .search_button {
     color: #fff;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
     font-size: 16px;
     background: transparent;
     border: 0;
@@ -422,7 +422,7 @@ p {
 .pathway {
     color: #000;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
 
 }
 
@@ -434,7 +434,7 @@ p {
 .pathway a {
     color: #000;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
 
 }
 
@@ -452,7 +452,7 @@ p {
 .cont_text p {
     color: #323232;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
     margin: 0 0 10px 0;
     padding: 0
 
@@ -476,7 +476,7 @@ p {
     text-decoration: underline;
     font-size: 15px;
     color: #0065a1;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
 }
 
 .news p {
@@ -488,7 +488,7 @@ p {
     font-size: 12px;
     line-height: 12px;
     color: #323232;
-    font-family: Arial;
+    font-family: Arial, serif;
 
 }
 
@@ -499,19 +499,17 @@ p {
 
 /******************* пресса *************************/
 .pressa {
-    margin: 40px 0px 0 0;
+    margin: 40px 0 0 0;
 }
 
 .pressa .item {
-    width: 202px;
-    float: left;
-    text-align: left;
+    text-align: justify;
     overflow: hidden;
-    margin: 0 60px 0 0;
+    margin: 0 0 20px 0;
 }
 
 #end_item_pressa {
-    margin: 0 0px 0 0;
+    margin: 0 0 0 0;
 }
 
 .pressa .item .img {
@@ -531,17 +529,17 @@ p {
 .pressa .item p {
     padding: 0;
     margin: 0;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .pressa .item .descript .date {
     color: #1a74a9;
-    font-family: Minion Pro;
+    font-family: Minion Pro, serif;
 }
 
 .pressa .item .descript .title a {
     color: #323232;
-    font-family: Arial;
+    font-family: Arial, serif;
 
 }
 
@@ -550,14 +548,16 @@ p {
 }
 
 .pressa .item .descript .text {
-    font-size: 11px;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: justify;
 }
 
 /******************** законодательство *******************/
 
 .zakon {
     position: relative;
-    margin: 40px 0px 40px 25px;
+    margin: 40px 0 40px 25px;
     padding: 15px;
     width: 625px;
     min-height: 296px;
@@ -572,7 +572,7 @@ p {
 .zakon_shadow {
     position: absolute;
     bottom: -19px;
-    left: 0px;
+    left: 0;
     width: 655px;
     height: 19px;
     background: url(/images/zakon_shadow.png) no-repeat left center;
@@ -587,12 +587,12 @@ p {
     text-align: left;
     font-size: 15px;
     text-decoration: underline;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
 }
 
 .zakon .item .description a {
     color: #047bc2;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 12px;
     text-decoration: none;
 
@@ -606,7 +606,7 @@ p {
 .zakon .pages {
     text-align: center;
     width: 100;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 17px;
     font-weight: bold;
 
@@ -659,7 +659,7 @@ p {
 
 #footer .contacts p {
     color: #0371b5;
-    font-family: Times New Roman;
+    font-family: Times New Roman, serif;
     font-size: 20px;
     margin: 0;
     padding: 0;
