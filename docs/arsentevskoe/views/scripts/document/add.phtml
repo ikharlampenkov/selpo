@@ -21,9 +21,11 @@
                 <td class="ttovar">
                     <select name="data[parent]">
                         <option value="">корень</option>
+                        <?php if ($this->documentFolderList != false): ?>
                         <?php foreach ($this->documentFolderList as $item): ?>
                         <option value="<?php echo $this->escape($item->id); ?>" <?php if (is_object($this->document->parent) && $this->document->parent->id == $item->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($item->title); ?></option>
                         <?php endforeach; ?>
+                        <?php endif; ?>
                     </select>
                 </td>
             </tr>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>Официальный сайт администрации Арсентьевского сельского поселения</title>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -57,43 +58,43 @@
             <div id="mainmenu">
                 <ul class="menu">
                     <?php foreach ($this->menuList as $group): ?>
-                    <li>
-                        <?php if ($group->getHandler() !== null): ?>
-                        <a href="<?php echo $this->escape($group->getUrl($this->authUserRole)); ?>" class="uppercase
+                        <li>
+                            <?php if ($group->getHandler() !== null): ?>
+                                <a href="<?php echo $this->escape($group->getUrl($this->authUserRole)); ?>" class="uppercase
                             <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
                             selected
                             <?php endif; ?>"><?php echo $this->escape($group->title) ?></a>
 
-                        <?php else: ?>
-                        <img src="/images/menu_icon.png" class="menu_icon"/>
-                        <a class="uppercase"><?php echo $this->escape($group->title) ?></a>
-                        <?php endif; ?>
-                        <?php $itemList = $group->getItemList();
-                        if ($itemList !== false): ?>
+                            <?php else: ?>
+                                <img src="/images/menu_icon.png" class="menu_icon"/>
+                                <a class="uppercase"><?php echo $this->escape($group->title) ?></a>
+                            <?php endif; ?>
+                            <?php $itemList = $group->getItemList();
+                            if ($itemList !== false): ?>
 
-                            <ul <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
+                                <ul <?php if ($this->menuActiveGroup !== false && $this->menuActiveGroup->link == $group->link): ?>
                                     style=" display: block;"
                                 <?php endif; ?> >
-                                <?php
+                                    <?php
 
-                                foreach ($itemList as $item): ?>
-                                    <?php if ($item->isVisible): ?>
-                                        <li><a href="<?php echo $this->escape($item->getUrl($this->authUserRole)); ?>"
-                                            <?php if ($this->menuActiveItem !== false && $item->link == $this->menuActiveItem->link): ?>
-                                               class="selected"
+                                    foreach ($itemList as $item): ?>
+                                        <?php if ($item->isVisible): ?>
+                                            <li><a href="<?php echo $this->escape($item->getUrl($this->authUserRole)); ?>"
+                                                    <?php if ($this->menuActiveItem !== false && $item->link == $this->menuActiveItem->link): ?>
+                                                    class="selected"
                                                 <?php endif; ?> ><?php echo $this->escape($item->title) ?></a></li>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
-                            </ul>
+                                </ul>
                             <?php endif; ?>
-                    </li>
+                        </li>
                     <?php endforeach; ?>
 
                     <?php if ($this->authUserRole !== 'guest'): ?>
-                    <li><a href="/menu/" class="uppercase">Управление разделами</a></li>
-                    <li><a href="/banner/" class="uppercase">Баннеры</a></li>
-                    <li><a href="/phone/" class="uppercase">Телефоны</a></li>
-                    <li><a href="/login/logout/" class="uppercase"><?php echo $this->authUser; ?> (выход)</a></li>
+                        <li><a href="/menu/" class="uppercase">Управление разделами</a></li>
+                        <li><a href="/banner/" class="uppercase">Баннеры</a></li>
+                        <li><a href="/phone/" class="uppercase">Телефоны</a></li>
+                        <li><a href="/login/logout/" class="uppercase"><?php echo $this->authUser; ?> (выход)</a></li>
                     <?php endif; ?>
 
                 </ul>
@@ -136,24 +137,31 @@
             <div class="title">Новости</div>
 
             <?php if ($this->newsListMain !== false): ?>
-            <?php foreach ($this->newsListMain as $item): ?>
+                <?php foreach ($this->newsListMain as $item): ?>
 
-                <div class="item">
-                    <div class="img">
-                        <?php if ($item->file->getName()): ?>
-                        <img src="/files<?php echo $this->escape($item->file->getSubPath()); ?>/<?php echo $this->escape($item->file->getPreview()); ?>"/>
-                        <?php endif; ?>
-                    </div>
-                    <div class="descript">
-                        <p class="date"><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></p>
+                    <div class="item">
+                        <div class="img">
+                            <?php if ($item->file->getName()): ?>
+                                <img src="/files<?php echo $this->escape($item->file->getSubPath()); ?>/<?php echo $this->escape($item->file->getPreview()); ?>"/>
+                            <?php endif; ?>
+                        </div>
+                        <div class="descript">
+                            <p class="date"><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></p>
 
-                        <p><a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $this->linkInfoNewsMain->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a></p>
+                            <p>
+                            <?php if ($item->link instanceof SM_Menu_Group): ?>
+                                <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->link . '-viewnews') ?>">
+                                <?php echo $this->escape($item->title); ?></a>
+                            <?php else: ?>
+                                <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->group->getLink() . '-' . $item->link->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a>
+                            <? endif; ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
                 <?php endforeach; ?>
             <?php endif; ?>
 
-            <div class="all_news"><a href="/pe_ljba/">Остальные новости</a></div>
+            <div class="all_news"><a href="/anon_meopiyaiy/">Остальные новости</a></div>
         </div>
 
     </div>
