@@ -8,10 +8,10 @@
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
     <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
 
-    <script src="/js/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/scripts.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
-    <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/css/styles-special.css"/>
 
     <!--[if lte IE 6]>
     <script src="/js/png.js"></script>
@@ -27,13 +27,27 @@
     <![endif]-->
 
 </head>
-<body>
+<body class="<?= $this->escape($this->currentSiteFontSize); ?> <?= $this->escape($this->currentSiteColor); ?>">
 <div id="wrapper">
-    <div id="header">
-        <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal'?'special':'normal'; ?>"><?= $this->currentSiteMode == 'normal'?'Версия для слабовидящих':'Обычная версия'; ?></a></div>
-        <div class="icon_sitemap"><a href="/"></a></div>
-        <div class="icon_mail"><a href="/"></a></div>
+    <div class="site-mode-panel">
+        <div class="site-color-change">Цвет сайта:
+            <a href="#" class="white">A</a>
+            <a href="#" class="black">A</a>
+        </div>
 
+        <div class="site-font-resize">Размер шрифта:
+            <a href="#" class="small">A</a>
+            <a href="#" class="medium">A</a>
+            <a href="#" class="large">A</a>
+        </div>
+
+        <div class="site-mode-change">
+            <a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a>
+        </div>
+    </div>
+
+
+    <div id="header">
         <div class="sitename">
             <a href="/">
                 <p class="big">Арсентьевское сельское поселение</p>
@@ -46,7 +60,7 @@
         <div class="search">
             <form action="/search/index/" method="post">
                 <input type="text" name="query" class="search_field" value=""/>
-                <input type="submit" name="submit_search" class="search_button" value=""/>
+                <input type="submit" name="submit_search" class="search_button" value="Поиск"/>
             </form>
 
         </div>
@@ -67,7 +81,6 @@
                             <?php endif; ?>"><?php echo $this->escape($group->title) ?></a>
 
                             <?php else: ?>
-                                <img src="/images/menu_icon.png" class="menu_icon"/>
                                 <a class="uppercase"><?php echo $this->escape($group->title) ?></a>
                             <?php endif; ?>
                             <?php $itemList = $group->getItemList();
@@ -82,8 +95,8 @@
                                         <?php if ($item->isVisible): ?>
                                             <li><a href="<?php echo $this->escape($item->getUrl($this->authUserRole)); ?>"
                                                     <?php if ($this->menuActiveItem !== false && $item->link == $this->menuActiveItem->link): ?>
-                                                    class="selected"
-                                                <?php endif; ?> ><?php echo $this->escape($item->title) ?></a></li>
+                                                        class="selected"
+                                                    <?php endif; ?> ><?php echo $this->escape($item->title) ?></a></li>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </ul>
@@ -103,14 +116,10 @@
 
         </div>
         <div class="content">
-            <div class="content_header"></div>
-
             <div class="content_center">
                 <?php echo $this->layout()->content; ?>
             </div>
-
         </div>
-
 
         <div class="clear"></div>
     </div>
@@ -124,7 +133,7 @@
         <div class="contacts">
             <div class="title">Контакты</div>
             <div class="phone">
-                <?php echo $this->escape($this->mainPhone->phone); ?>
+                8 (3842) <?php echo $this->escape($this->mainPhone->phone); ?>
             </div>
             <p><?php echo $this->mainPhone->address; ?></p>
 
@@ -150,12 +159,12 @@
                             <p class="date"><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></p>
 
                             <p>
-                            <?php if ($item->link instanceof SM_Menu_Group): ?>
-                                <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->link . '-viewnews') ?>">
-                                <?php echo $this->escape($item->title); ?></a>
-                            <?php else: ?>
-                                <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->group->getLink() . '-' . $item->link->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a>
-                            <? endif; ?>
+                                <?php if ($item->link instanceof SM_Menu_Group): ?>
+                                    <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->link . '-viewnews') ?>">
+                                        <?php echo $this->escape($item->title); ?></a>
+                                <?php else: ?>
+                                    <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->group->getLink() . '-' . $item->link->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a>
+                                <? endif; ?>
                             </p>
                         </div>
                     </div>
