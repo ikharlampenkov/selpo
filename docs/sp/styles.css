@@ -666,17 +666,13 @@ p {
 }
 
 #footer .made {
-    margin-left: 50%;
+    height: 53px;
+    text-align: center;
 }
 
-#footer .made a {
-    position: absolute;
-    display: block;
-    margin-left: -47px;
+#footer .made > a:first-child {
+    margin-right: 50px;
     width: 94px;
-    height: 53px;
-    background: url(/images/invoice.png) no-repeat left top;
-
 }
 
 /********************************************/
