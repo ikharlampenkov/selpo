@@ -30,7 +30,7 @@
 <body>
 <div id="wrapper">
     <div id="header">
-        <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal'?'special':'normal'; ?>"><?= $this->currentSiteMode == 'normal'?'Версия для слабовидящих':'Обычная версия'; ?></a></div>
+        <div class="site-mode"><a href="/index/change-mode/mode/<?= $this->currentSiteMode == 'normal' ? 'special' : 'normal'; ?>"><?= $this->currentSiteMode == 'normal' ? 'Версия для слабовидящих' : 'Обычная версия'; ?></a></div>
         <div class="icon_sitemap"><a href="/"></a></div>
         <div class="icon_mail"><a href="/"></a></div>
 
@@ -82,8 +82,8 @@
                                         <?php if ($item->isVisible): ?>
                                             <li><a href="<?php echo $this->escape($item->getUrl($this->authUserRole)); ?>"
                                                     <?php if ($this->menuActiveItem !== false && $item->link == $this->menuActiveItem->link): ?>
-                                                    class="selected"
-                                                <?php endif; ?> ><?php echo $this->escape($item->title) ?></a></li>
+                                                        class="selected"
+                                                    <?php endif; ?> ><?php echo $this->escape($item->title) ?></a></li>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
                                 </ul>
@@ -131,7 +131,53 @@
             <p><?php echo $this->escape($this->mainPhone->postIndex); ?></p>
         </div>
 
-        <div class="copyr">&copy; <?php echo date('Y'); ?> «Арсентьевское сельское поселение»</div>
+        <div class="copyr">
+            &copy; <?php echo date('Y'); ?> «Арсентьевское сельское поселение»<br/>
+
+            <!-- Yandex.Metrika informer -->
+            <a href="https://metrika.yandex.ru/stat/?id=44920999&amp;from=informer"
+               target="_blank" rel="nofollow" style="margin-top: 5px; display: block;">
+                <img src="https://informer.yandex.ru/informer/44920999/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+                     style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="44920999" data-lang="ru"/>
+            </a>
+            <!-- /Yandex.Metrika informer -->
+
+            <!-- Yandex.Metrika counter -->
+            <script type="text/javascript">
+                (function (d, w, c) {
+                    (w[c] = w[c] || []).push(function () {
+                        try {
+                            w.yaCounter44920999 = new Ya.Metrika({
+                                id: 44920999,
+                                clickmap: true,
+                                trackLinks: true,
+                                accurateTrackBounce: true
+                            });
+                        } catch (e) {
+                        }
+                    });
+
+                    var n = d.getElementsByTagName("script")[0],
+                        s = d.createElement("script"),
+                        f = function () {
+                            n.parentNode.insertBefore(s, n);
+                        };
+                    s.type = "text/javascript";
+                    s.async = true;
+                    s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else {
+                        f();
+                    }
+                })(document, window, "yandex_metrika_callbacks");
+            </script>
+            <noscript>
+                <div><img src="https://mc.yandex.ru/watch/44920999" style="position:absolute; left:-9999px;" alt=""/></div>
+            </noscript>
+            <!-- /Yandex.Metrika counter -->
+        </div>
         <div class="footer_line"></div>
 
         <div class="news">
@@ -150,12 +196,12 @@
                             <p class="date"><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></p>
 
                             <p>
-                            <?php if ($item->link instanceof SM_Menu_Group): ?>
-                                <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->link . '-viewnews') ?>">
-                                <?php echo $this->escape($item->title); ?></a>
-                            <?php else: ?>
-                                <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->group->getLink() . '-' . $item->link->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a>
-                            <? endif; ?>
+                                <?php if ($item->link instanceof SM_Menu_Group): ?>
+                                    <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->link . '-viewnews') ?>">
+                                        <?php echo $this->escape($item->title); ?></a>
+                                <?php else: ?>
+                                    <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->group->getLink() . '-' . $item->link->link . '-viewnews') ?>"><?php echo $this->escape($item->title); ?></a>
+                                <? endif; ?>
                             </p>
                         </div>
                     </div>
