@@ -179,6 +179,15 @@ class SM_Menu_Item
         return $tempURL;
     }
 
+    public function calculateFullUrl($delimiter = '/')
+    {
+        if ($this->_group !== null) {
+            return $this->getGroup()->calculateFullUrl($delimiter) . $delimiter . $this->_link;
+        } else {
+            return $this->_link;
+        }
+    }
+
 
     public function getRoute(Zend_Controller_Router_Rewrite &$router)
     {
